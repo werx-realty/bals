@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Balas Montessori · Preschool &amp; Kindergarten · Ridgecrest, CA</title>
+<meta content="Balas Montessori Preschool and Kindergarten in Ridgecrest, CA. Ages 2 through Kindergarten, Monday–Friday, 7 AM–5:30 PM. Enroll online." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Nunito:wght@400;600;700;800&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#1a344b; --navy-2:#24486a; --ink:#1c2630; --muted:#5b6670;
+  --cream:#fbf6e6; --cream-2:#f4ecd4; --paper:#fffdf7; --line:#e7dfc6;
+  --leaf:#8cbf4a; --bark:#7a5636; --sun:#f2b84b; --sky:#5aa0d6; --coral:#e9806b;
+  --r:20px; --shadow:0 18px 40px -22px rgba(26,52,75,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;font-size:calc(17px*var(--ts,1));-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;color:var(--navy);line-height:1.12;font-weight:600}
+h2{font-size:calc(clamp(30px,4vw,44px)*var(--ts,1));letter-spacing:-.01em}
+h3{font-size:calc(21px*var(--ts,1))}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.sec{padding:96px 0}
+.lead{color:var(--muted);font-size:calc(18px*var(--ts,1));max-width:620px}
+.kicker{font-family:Caveat,cursive;font-size:26px;color:var(--bark);display:block;margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:16px;text-decoration:none;border-radius:999px;padding:15px 28px;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;font-family:inherit}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 24px -10px rgba(26,52,75,.6)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--navy-2)}
+.btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,246,230,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo img{height:58px;width:auto;mix-blend-mode:multiply}
+.links{display:flex;gap:28px;align-items:center}
+.links a{text-decoration:none;font-weight:700;font-size:15px;color:var(--navy);opacity:.85}
+.links a:hover{opacity:1}
+.links .btn{padding:11px 22px;font-size:15px;opacity:1;color:#fff}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
+
+/* hero */
+.hero{background:var(--cream);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-top:72px;padding-bottom:96px}
+.hero h1{font-size:calc(clamp(40px,5.6vw,68px)*var(--ts,1));letter-spacing:-.02em;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--bark)}
+.hero p{font-size:calc(19px*var(--ts,1));color:var(--muted);max-width:520px;margin-bottom:34px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.facts{display:flex;gap:30px;margin-top:44px;flex-wrap:wrap}
+.facts div{font-size:14px;color:var(--muted);font-weight:600}
+.facts b{display:block;font-family:Fraunces,serif;font-size:26px;color:var(--navy);font-weight:600}
+.collage{position:relative;height:540px}
+.collage .ph{position:absolute;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff}
+.collage .ph img{width:100%;height:100%;object-fit:cover}
+.ph.a{top:0;right:0;width:78%;height:66%}
+.ph.b{bottom:0;left:0;width:52%;height:46%}
+.ph.c{bottom:28px;right:4%;width:38%;height:34%}
+.dot{position:absolute;border-radius:50%}
+.d1{width:90px;height:90px;background:var(--sun);top:58%;left:6%;opacity:.9}
+.d2{width:44px;height:44px;background:var(--sky);top:4%;left:10%}
+.d3{width:26px;height:26px;background:var(--coral);top:30%;left:20%}
+.wave{display:block;width:100%;height:60px;margin-top:-1px}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.about .img{border-radius:28px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3.4}
+.about .img img{width:100%;height:100%;object-fit:cover}
+.about p{color:var(--muted);margin-top:18px}
+.quote{margin-top:26px;padding:22px 26px;background:var(--cream);border-radius:18px;font-family:Fraunces,serif;font-size:20px;color:var(--navy);position:relative}
+.quote small{display:block;font-family:Nunito;font-size:14px;color:var(--bark);margin-top:8px;font-weight:700}
+
+/* programs */
+.programs{background:var(--navy);color:#fff;position:relative}
+.programs h2,.programs h3{color:#fff}
+.programs .lead{color:#c9d5e0}
+.programs .kicker{color:var(--sun)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+.pcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:30px}
+.pcard .tag{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);background:var(--sun);border-radius:8px;padding:4px 10px;margin-bottom:16px}
+.pcard:nth-child(2) .tag{background:#9cc8ec}
+.pcard:nth-child(3) .tag{background:#f3b3a5}
+.pcard p{color:#c9d5e0;margin-top:8px}
+.infobar{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:22px}
+.info{background:#fff;color:var(--ink);border-radius:var(--r);padding:24px}
+.info b{display:block;font-family:Fraunces,serif;font-size:22px;color:var(--navy);font-weight:600}
+.info span{font-size:14px;color:var(--muted)}
+
+/* curriculum */
+.cur{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.ccard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .25s,box-shadow .25s}
+.ccard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.ccard .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;font-size:24px}
+.ccard h3{font-size:19px}
+.ccard p{font-size:15px;color:var(--muted);margin-top:6px}
+.ccard.wide{grid-column:span 2;background:var(--cream);border:0;display:flex;gap:22px;align-items:center;padding:0;overflow:hidden}
+.ccard.wide img{width:46%;height:100%;object-fit:cover;align-self:stretch}
+.ccard.wide div{padding:26px 26px 26px 0}
+
+/* gallery strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:0}
+.strip img{border-radius:18px;aspect-ratio:1;object-fit:cover;width:100%}
+
+/* testimonials */
+.fam{background:var(--cream)}
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:44px}
+.t{background:#fff;border-radius:var(--r);padding:30px;box-shadow:0 2px 0 var(--line)}
+.t p{font-size:17px}
+.t .who{display:flex;align-items:center;gap:12px;margin-top:18px;font-weight:800;color:var(--navy)}
+.t .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
+.stars{color:var(--sun);letter-spacing:2px;margin-bottom:10px}
+
+/* staff */
+.staff{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.s{border:1px solid var(--line);border-radius:var(--r);padding:28px;text-align:center;background:#fff}
+.s .mono{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-family:Fraunces,serif;font-size:30px;color:#fff}
+.s span{color:var(--muted);font-size:15px}
+.s a{display:inline-block;margin-top:12px;font-weight:800;font-size:14px;color:var(--navy)}
+
+/* resources */
+.res{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.r{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;transition:border-color .2s,transform .2s}
+.r:hover{border-color:var(--navy);transform:translateY(-3px)}
+.r b{color:var(--navy);font-size:17px}
+.r span{color:var(--muted);font-size:14px}
+.r i{font-style:normal;font-weight:800;color:var(--sky);font-size:14px;margin-top:auto;padding-top:8px}
+
+/* enroll form */
+.enroll{background:linear-gradient(180deg,var(--cream) 0,var(--paper) 100%)}
+.ewrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.eside{position:sticky;top:110px}
+.eside ul{list-style:none;margin-top:26px;display:grid;gap:14px}
+.eside li{display:flex;gap:12px;color:var(--muted)}
+.eside li b{color:var(--navy)}
+.eside .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+form.card{background:#fff;border-radius:28px;box-shadow:var(--shadow);border:1px solid var(--line);padding:40px}
+.fhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed var(--line);padding-bottom:20px;margin-bottom:26px;gap:16px}
+.fhead h3{font-size:26px}
+.fhead span{font-size:14px;color:var(--muted);font-weight:700}
+fieldset{border:0;margin-bottom:28px}
+legend{font-family:Fraunces,serif;font-size:19px;color:var(--navy);font-weight:600;margin-bottom:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.row.one{grid-template-columns:1fr}
+label{display:block;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+label .opt{color:var(--muted);font-weight:600}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],select,textarea{width:100%;font:inherit;font-size:16px;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(90,160,214,.18);background:#fff}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:11px 18px;border:1.5px solid var(--line);border-radius:999px;font-weight:700;font-size:15px;cursor:pointer;background:var(--paper);transition:all .2s}
+.chip input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.chip input:focus-visible+span{box-shadow:0 0 0 4px rgba(90,160,214,.3)}
+.note{font-size:13px;color:var(--muted);margin-top:6px}
+.terms{max-height:230px;overflow:auto;background:var(--cream);border-radius:14px;padding:20px 22px;font-size:14px;color:#444;border:1px solid var(--line)}
+.terms p{margin-bottom:10px}
+.terms b{color:var(--navy)}
+.check{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:15px;font-weight:600;cursor:pointer}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--navy);flex:none}
+.sigprev{font-family:Caveat,cursive;font-size:34px;color:var(--navy);min-height:52px;border-bottom:2px solid var(--navy);margin-top:10px;padding:0 4px}
+.submit{width:100%;justify-content:center;font-size:17px;padding:18px}
+.err{color:#c0392b;font-size:14px;font-weight:700;margin-top:12px;display:none}
+.done{display:none;text-align:center;padding:40px 10px}
+.done .big{width:84px;height:84px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;margin:0 auto 18px;font-size:40px}
+.done p{color:var(--muted);max-width:420px;margin:10px auto 0}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.cbox{background:var(--navy);color:#fff;border-radius:28px;padding:40px}
+.cbox h3{color:#fff;font-size:26px;margin-bottom:18px}
+.cbox p{color:#c9d5e0;margin-bottom:14px}
+.cbox a{color:#fff;font-weight:800;text-decoration:none}
+.map{border-radius:28px;overflow:hidden;min-height:340px;border:1px solid var(--line)}
+.map iframe{width:100%;height:100%;min-height:340px;border:0}
+
+footer{background:var(--cream);border-top:1px solid var(--line);padding:40px 0 30px;font-size:14px;color:var(--muted)}
+.fwrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer img{height:52px;mix-blend-mode:multiply}
+.fbar{text-align:center;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+
+/* team */
+.founder{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;margin-top:44px;background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.fimg{min-height:100%;background:var(--cream)}
+.fimg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.ftext{padding:44px 46px}
+.ftext h3,.tbody h3{font-size:32px;margin:6px 0 14px}
+.ftext p,.tbody p{color:var(--muted);margin-bottom:14px}
+.role{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--bark)}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px}
+.chips2 span{font-size:13px;font-weight:700;color:var(--navy);background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.tbody .chips2{margin:0 0 16px}
+.sign{font-family:Caveat,cursive;font-size:38px;color:var(--navy);margin-top:14px}
+.team{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+.tm{background:#fff;border:1px solid var(--line);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr}
+.timg{background:#eceae6}
+.timg img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.tbody{padding:30px 30px 26px}
+.tbody h3{font-size:26px;margin-bottom:12px}
+.tbody p{font-size:15px}
+blockquote{font-family:Fraunces,serif;font-size:16px;color:var(--navy);background:var(--cream);border-radius:14px;padding:14px 16px;margin-top:4px}
+@media (max-width:980px){.founder,.team{grid-template-columns:1fr}.fimg img{aspect-ratio:1;height:auto}.ftext{padding:30px 26px}}
+@media (max-width:640px){.tm{grid-template-columns:1fr}.timg img{aspect-ratio:4/4.2;height:auto}.tbody{padding:24px 20px}.ftext{padding:26px 20px}.ftext h3{font-size:28px}}
+
+/* calendar modal */
+.cal-ov{position:fixed;inset:0;z-index:100;background:rgba(18,32,46,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .25s}
+.cal-ov.open{opacity:1;pointer-events:auto}
+.cal{background:var(--paper);width:min(1040px,100%);max-height:calc(100vh - 48px);border-radius:28px;box-shadow:0 40px 80px -30px rgba(0,0,0,.45);display:flex;flex-direction:column;overflow:hidden;transform:translateY(16px) scale(.98);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.cal-ov.open .cal{transform:none}
+.cal-top{background:var(--cream);padding:24px 30px 0;border-bottom:1px solid var(--line)}
+.cal-hd{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.cal-hd h3{font-size:28px}
+.cal-hd p{font-size:14px;color:var(--muted);margin-top:2px}
+.ysw{margin-left:auto;display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px;flex:none}
+.ysw button{border:0;background:none;font:inherit;font-weight:800;font-size:13px;color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer}
+.ysw button.on{background:var(--navy);color:#fff}
+.cal-x{flex:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:22px;line-height:1;cursor:pointer;color:var(--navy);transition:background .2s}
+.cal-x:hover{background:var(--navy);color:#fff}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 14px;font-size:13px;font-weight:700;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:12px;height:12px;border-radius:4px;display:inline-block}
+.mtabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;margin:0 -30px;padding:0 30px}
+.mtabs::-webkit-scrollbar{display:none}
+.mtab{flex:none;border:0;background:none;font:inherit;font-weight:800;font-size:14px;color:var(--muted);padding:10px 14px 12px;cursor:pointer;border-bottom:3px solid transparent;transition:color .2s}
+.mtab small{display:block;font-size:11px;font-weight:700;opacity:.7}
+.mtab:hover{color:var(--navy)}
+.mtab.on{color:var(--navy);border-color:var(--navy)}
+.cal-body{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;padding:28px 30px 30px;overflow:auto}
+.mhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.mhead h4{font-family:Fraunces,serif;font-size:26px;color:var(--navy);font-weight:600}
+.arrows{display:flex;gap:8px}
+.arrows button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:18px;color:var(--navy)}
+.arrows button:hover:not(:disabled){background:var(--navy);color:#fff}
+.arrows button:disabled{opacity:.35;cursor:default}
+.grid7{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.grid7 .dow{text-align:center;font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-bottom:4px}
+.day{aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);position:relative;transition:transform .15s}
+.day.we{background:transparent;border-color:transparent;color:#b3b9bf}
+.day.blank{background:transparent;border:0}
+.day.ev{cursor:pointer}
+.day.ev:hover,.day.hl{transform:scale(1.08);box-shadow:0 6px 14px -6px rgba(26,52,75,.4)}
+.day.today{outline:2px solid var(--navy);outline-offset:2px}
+.t-nos{background:#fbe0da!important;border-color:#f3b3a5!important;color:#a3402c!important}
+.t-half{background:#fdeccb!important;border-color:#f2cf8a!important;color:#8a5a0b!important}
+.t-ev{background:#dcebf8!important;border-color:#a9cdee!important;color:#1d5a8c!important}
+.t-closed{background:#e6e8eb!important;border-color:#cfd3d8!important;color:#59626b!important}
+.lg-nos{background:#f3b3a5}.lg-half{background:#f2cf8a}.lg-ev{background:#a9cdee}.lg-closed{background:#cfd3d8}
+.elist h5{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.ei{display:flex;gap:14px;align-items:flex-start;padding:12px;border-radius:14px;transition:background .2s;cursor:default}
+.ei:hover,.ei.hl{background:var(--cream)}
+.ei .dt{flex:none;width:54px;height:54px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.ei .dt b{font-family:Fraunces,serif;font-size:19px}
+.ei .dt span{font-size:10px;font-weight:800;text-transform:uppercase;margin-top:3px}
+.ei .tx b{display:block;color:var(--ink);font-size:15px}
+.ei .tx span{font-size:13px;color:var(--muted)}
+.ei .pill{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;margin-top:5px;text-transform:uppercase;letter-spacing:.04em}
+.empty{color:var(--muted);font-size:15px;padding:12px}
+.cal-ft{padding:14px 30px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff}
+body.lock{overflow:hidden}
+@media (max-width:820px){
+  .cal-ov{padding:0;align-items:flex-end}
+  .cal{max-height:94vh;border-radius:24px 24px 0 0}
+  .cal-body{grid-template-columns:1fr;padding:20px 16px}
+  .cal-top{padding:18px 16px 0}.mtabs{margin:0 -16px;padding:0 16px}
+  .cal-hd{flex-wrap:wrap}.cal-hd>div:first-child{flex:1;min-width:0}
+  .ysw{order:3;margin:12px 0 0;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:16px}.ysw button{padding:8px 6px;font-size:12.5px;border-radius:12px}
+  .cal-hd h3{font-size:22px}
+  .legend{gap:8px 14px;margin:12px 0 8px;font-size:12px}
+  .cal-ft span:last-child{display:none}
+  .day{font-size:13px;border-radius:9px}
+  .cal-ft{padding:12px 16px}
+}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:980px){
+  .hero .wrap,.about,.ewrap,.contact{grid-template-columns:1fr}
+  .collage{height:420px}
+  .grid3{grid-template-columns:1fr}
+  .infobar,.res{grid-template-columns:1fr 1fr}
+  .cur{grid-template-columns:1fr 1fr}
+  .staff{grid-template-columns:1fr}
+  .eside{position:static}
+  .links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px;border-bottom:1px solid var(--line);gap:16px}
+  .links.open{display:flex}
+  .burger{display:block}
+}
+@media (max-width:640px){
+  body{font-size:calc(16px*var(--ts,1))}
+  .wrap{padding:0 16px}
+  .sec{padding:68px 0}
+  .tgrid,.row,.cur,.infobar,.res{grid-template-columns:1fr}
+  .ccard.wide{grid-column:auto;flex-direction:column}
+  .ccard.wide img{width:100%;height:180px}
+  .ccard.wide div{padding:0 22px 22px}
+  .strip{grid-template-columns:1fr 1fr}
+  form.card{padding:24px 18px}
+  .collage{height:340px}
+  .fhead{flex-direction:column;align-items:flex-start}
+}
+</style>
+<style>
+.upl{margin-top:22px;background:var(--navy);color:#fff;border-radius:28px;padding:34px;display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:center}
+.upl h3{color:#fff;font-size:calc(26px*var(--ts,1))}.upl p{color:#c9d5e0;margin-top:8px}
+.upl form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.upl input[type=text],.upl input[type=email]{width:100%;font:inherit;font-size:15px;padding:12px 14px;border-radius:12px;border:0;background:#fff;color:var(--ink)}
+.upl .drop{grid-column:1/-1;border:2px dashed rgba(255,255,255,.35);border-radius:14px;padding:16px;text-align:center;cursor:pointer;color:#c9d5e0;font-weight:700;font-size:15px}
+.upl .drop:hover{border-color:#fff;color:#fff}.upl .drop input{display:none}
+.upl .flist{grid-column:1/-1;font-size:13px;color:#c9d5e0}
+.upl .btn{grid-column:1/-1;justify-content:center;background:#fff;color:var(--navy)}
+.upl .msg{grid-column:1/-1;font-size:14px;font-weight:700}
+.hp{position:absolute;left:-9999px}
+@media (max-width:820px){.upl{grid-template-columns:1fr;padding:24px 18px}.upl form{grid-template-columns:1fr}}
+html.editing .rv{opacity:1;transform:none;transition:none}
+</style>
+<script>window.__C={};</script>
+<script src="/api/content"></script>
+</head>
+<body>
+<header>
+<div class="wrap nav">
+<a class="logo" href="#top"><img alt="Balas Montessori" data-img="img.header.1" src="https://www.balasmontessorischool.com/uploads/1/0/6/4/10648738/published/new-logo-balas.jpg"/></a>
+<nav class="links" id="links">
+<a data-k="header.1" href="#about">About</a>
+<a data-k="header.2" href="#programs">Programs</a>
+<a data-k="header.3" href="#curriculum">Curriculum</a>
+<a data-k="header.4" href="#families">Families</a>
+<a data-k="header.5" href="#resources">Calendars &amp; Forms</a>
+<a data-k="header.6" href="#contact">Contact</a>
+<a class="btn btn-primary" data-k="header.7" href="#enroll">Enroll Now</a>
+</nav>
+<button aria-label="Menu" class="burger" onclick="document.getElementById('links').classList.toggle('open')"><span></span><span></span><span></span></button>
+</div>
+</header>
+<section class="hero" id="top">
+<div class="wrap">
+<div class="rv">
+<h1 data-k="top.1">Where curious little minds <em>grow</em> on their own.</h1>
+<p data-k="top.2">Balas Montessori is a warm, licensed preschool and kindergarten in Ridgecrest, CA — where children ages 2 through Kindergarten learn by choice, at their own pace, in a calm and beautiful classroom.</p>
+<div class="ctas">
+<a class="btn btn-primary" data-k="top.3" href="#enroll">Start Enrollment →</a>
+<a class="btn btn-ghost" data-k="top.4" data-tel="1" href="tel:7603758261">Call 760-375-8261</a>
+</div>
+<div class="facts">
+<div data-k="top.5"><b>Ages 2–K</b>Preschool &amp; Kindergarten</div>
+<div data-k="top.6"><b>≤ 24</b>Children per class</div>
+<div data-k="top.7"><b>7–5:30</b>Monday – Friday</div>
+</div>
+</div>
+<div class="collage rv">
+<span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+<div class="ph a"><img alt="Teacher guiding children as they draw" data-img="img.top.1" src="https://images.unsplash.com/photo-1761604478724-13fe879468cf?w=1000&amp;q=75&amp;auto=format&amp;fit=crop"/></div>
+<div class="ph b"><img alt="Child working on an alphabet puzzle" data-img="img.top.2" src="https://images.unsplash.com/photo-1759678444870-1f09f0d9e688?w=700&amp;q=75&amp;auto=format&amp;fit=crop"/></div>
+<div class="ph c"><img alt="Montessori bead cabinet" data-img="img.top.3" src="https://www.balasmontessorischool.com/uploads/1/0/6/4/10648738/editor/bead-cabinet.jpeg"/></div>
+</div>
+</div>
+<svg class="wave" preserveaspectratio="none" viewbox="0 0 1440 60"><path d="M0 30 C 240 70 480 0 720 25 S 1200 60 1440 20 L1440 60 L0 60Z" fill="#fffdf7"></path></svg>
+</section>
+<section class="sec" id="about">
+<div class="wrap about">
+<div class="img rv"><img alt="Young girl writing" data-img="img.about.1" src="https://images.unsplash.com/photo-1586694680938-9682c9e1f736?w=1000&amp;q=75&amp;auto=format&amp;fit=crop"/></div>
+<div class="rv">
+<span class="kicker" data-k="about.1">The purpose of Montessori</span>
+<h2 data-k="about.2">Not filling minds — nurturing a love of learning.</h2>
+<p data-k="about.3">Dr. Maria Montessori believed no one is educated by another person — a child must do it themselves. A truly educated person keeps learning long after the school years, because they're moved by their own curiosity and love of knowledge.</p>
+<p data-k="about.4">In our classroom, each child experiences the excitement of learning by their own choice, and perfects their natural tools for learning so their ability is at its best in every future learning situation.</p>
+<div class="quote"><span data-k="about.5">“The goal of early childhood education is to cultivate the child's own natural desire to learn.”</span><small data-k="about.6">— Dr. Maria Montessori</small></div>
+</div>
+</div>
+</section>
+<section class="sec programs" id="programs">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="programs.1">Program information</span>
+<h2 data-k="programs.2">Flexible schedules for every family.</h2>
+<p class="lead" data-k="programs.3">Choose the rhythm that fits your week. Full-day pricing is standard — half-day pricing is available on request.</p>
+</div>
+<div class="grid3">
+<div class="pcard rv"><span class="tag" data-k="programs.4">2 days</span><h3 data-k="programs.5">Tuesday / Thursday</h3><p data-k="programs.6">A gentle start — perfect for little ones just beginning their classroom journey.</p></div>
+<div class="pcard rv"><span class="tag" data-k="programs.7">3 days</span><h3 data-k="programs.8">Mon / Wed / Fri</h3><p data-k="programs.9">A steady routine that builds independence, friendships, and confidence.</p></div>
+<div class="pcard rv"><span class="tag" data-k="programs.10">5 days</span><h3 data-k="programs.11">Monday – Friday</h3><p data-k="programs.12">The full Montessori experience, every day of the week.</p></div>
+</div>
+<div class="infobar">
+<div class="info rv"><b data-k="programs.13">7 AM – 5:30 PM</b><span data-k="programs.14">Early drop-off with Director approval</span></div>
+<div class="info rv"><b data-k="programs.15">Ages 2 – K</b><span data-k="programs.16">Preschool &amp; Kindergarten</span></div>
+<div class="info rv"><b data-k="programs.17">24 or fewer</b><span data-k="programs.18">Children per class</span></div>
+<div class="info rv"><b data-k="programs.19">State licensed</b><span data-k="programs.20">CA Dept. of Social Services · Member, United Montessori Association</span></div>
+</div>
+</div>
+</section>
+<section class="sec" id="curriculum">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="curriculum.1">Montessori curriculum</span>
+<h2 data-k="curriculum.2">Seven areas, one joyful classroom.</h2>
+<p class="lead" data-k="curriculum.3">Each area is introduced simply — even for our youngest — and grows richer and more complex as your child matures.</p>
+</div>
+<div class="cur">
+<div class="ccard rv"><div class="ic" style="background:#fdeccb">🧺</div><h3 data-k="curriculum.4">Practical Life</h3><p data-k="curriculum.5">Pouring, buttoning, caring for self and classroom — the roots of focus and independence.</p></div>
+<div class="ccard rv"><div class="ic" style="background:#dcebf8">🔷</div><h3 data-k="curriculum.6">Sensorial</h3><p data-k="curriculum.7">Hands-on materials that refine the senses: size, color, shape, sound and texture.</p></div>
+<div class="ccard rv"><div class="ic" style="background:#fbe0da">🔤</div><h3 data-k="curriculum.8">Language</h3><p data-k="curriculum.9">Sounds, sandpaper letters, early reading and writing at each child's pace.</p></div>
+<div class="ccard rv"><div class="ic" style="background:#efe6f8">🔢</div><h3 data-k="curriculum.10">Mathematics</h3><p data-k="curriculum.11">Golden beads and number rods turn abstract ideas into something you can hold.</p></div>
+<div class="ccard wide rv"><img alt="Wooden Montessori lacing material" data-img="img.curriculum.1" src="https://images.unsplash.com/photo-1769783664941-635bc57fe507?w=800&amp;q=75&amp;auto=format&amp;fit=crop"/><div><h3 data-k="curriculum.12">Cultural Studies &amp; Sciences</h3><p data-k="curriculum.13">Geography, nature, animals and the world around us — sparking wonder and big questions.</p></div></div>
+<div class="ccard rv" style="grid-column:span 2"><div class="ic" style="background:#e7f0dc">🤝</div><h3 data-k="curriculum.14">Social Behavior &amp; Physical Activity</h3><p data-k="curriculum.15">Grace and courtesy, kindness, teamwork and plenty of movement — growing the whole child, not just the mind.</p></div>
+</div>
+</div>
+</section>
+<div class="wrap">
+<div class="strip rv">
+<img alt="Children playing in a bright classroom" data-img="img.page.1" src="https://images.unsplash.com/photo-1761208663763-c4d30657c910?w=600&amp;q=70&amp;auto=format&amp;fit=crop"/>
+<img alt="Adult and child coloring together" data-img="img.page.2" src="https://images.unsplash.com/photo-1587323655395-b1c77a12c89a?w=600&amp;q=70&amp;auto=format&amp;fit=crop"/>
+<img alt="Child-sized play kitchen" data-img="img.page.3" src="https://images.unsplash.com/photo-1763310225537-f7161d5c93e9?w=600&amp;q=70&amp;auto=format&amp;fit=crop"/>
+<img alt="Wooden letters on a table" data-img="img.page.4" src="https://images.unsplash.com/photo-1564429238817-393bd4286b2d?w=600&amp;q=70&amp;auto=format&amp;fit=crop"/>
+</div>
+</div>
+<section class="sec fam" id="families" style="margin-top:96px">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="families.1">From our families</span>
+<h2 data-k="families.2">Parents say it feels like family.</h2>
+</div>
+<div class="tgrid">
+<div class="t rv"><div class="stars">★★★★★</div><p data-k="families.3">My kids became more self-reliant and motivated learners. The school worked with my changing schedule, and the patient, loving teachers made all the difference.</p><div class="who"><span class="av" style="background:var(--sky)">T</span><span data-k="families.4">Tara B.</span></div></div>
+<div class="t rv"><div class="stars">★★★★★</div><p data-k="families.5">Our daughter grew so self-assured and talkative after starting here — thanks to the teachers' training and nurturing care. We'll be enrolling our next child too.</p><div class="who"><span class="av" style="background:var(--coral)">B</span><span data-k="families.6">Bethany S.</span></div></div>
+<div class="t rv"><div class="stars">★★★★★</div><p data-k="families.7">Both of our daughters got a wonderful preK and kindergarten education and felt like part of a family. Years later, they still remember it fondly.</p><div class="who"><span class="av" style="background:var(--sun)">O</span><span data-k="families.8">Olivia P.</span></div></div>
+<div class="t rv"><div class="stars">★★★★★</div><p data-k="families.9">The staff are warm and kind, my kids look forward to going every day, and I'm amazed at how much my twins have learned.</p><div class="who"><span class="av" style="background:var(--navy)">T</span><span data-k="families.10">Tayler M.</span></div></div>
+</div>
+<p style="margin-top:28px;text-align:center"><a class="btn btn-ghost" data-h="h.families.1" data-k="families.11" href="https://www.balasmontessorischool.com/testimonials.html" rel="noopener" target="_blank">Read more testimonials</a></p>
+</div>
+</section>
+<section class="sec" id="staff">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="staff.1">Meet our team</span>
+<h2 data-k="staff.2">The people who make it feel like family.</h2>
+<p class="lead" data-k="staff.3">Dr. Montessori called the teacher a “directress” — a guide who watches each child closely, adjusts lessons to their readiness, and models kindness and community.</p>
+</div>
+<div class="founder rv">
+<div class="fimg"><img alt="Shannon Balas" data-img="img.staff.1" src="/img/shannon.jpg"/></div>
+<div class="ftext">
+<span class="role" data-k="staff.4">Owner &amp; Director · Since 2005</span>
+<h3 data-k="staff.5">Shannon Balas</h3>
+<p data-k="staff.6">Hello, and welcome! I've owned and operated Balas Montessori since 2005. The school began in my home, where I taught alongside my co-teacher Jessica Cooper for six years. In August 2012 we opened our Preschool &amp; Kindergarten at 555 S. China Lake Blvd, and in 2020 we added our Toddler Center on Triangle Drive.</p>
+<p data-k="staff.7">My husband Joe and I moved to Ridgecrest from Montana in 1996 and quickly made it home. We have three daughters — Kendal, Macey and Payton. This community has been so good to us, and my hope is to keep giving its children the great start to early education they deserve.</p>
+<div class="chips2"><span data-k="staff.8">Owner, UMA Teacher Training Facility</span><span data-k="staff.9">Certified ages 2 – Kindergarten</span><span data-k="staff.10">50+ years combined staff experience</span></div>
+<div class="sign" data-k="staff.11">Shannon Balas</div>
+</div>
+</div>
+<div class="team">
+<div class="tm rv">
+<div class="timg"><img alt="Kristen Honeywell" data-img="img.staff.2" src="/img/kristen.jpg"/></div>
+<div class="tbody">
+<span class="role" data-k="staff.12">Co-Director · Personal Relations</span>
+<h3 data-k="staff.13">Kristen Honeywell</h3>
+<div class="chips2"><span data-k="staff.14">10+ years at Balas</span><span data-k="staff.15">UMA trained</span><span data-k="staff.16">AA, Early Childhood Ed.</span></div>
+<p data-k="staff.17">Kristen brings great dedication to Balas Montessori and the Montessori philosophy. A mom of two boys, she loves Disneyland, building extravagant Lego creations, and her zoo at home — hairless cats and tarantulas included!</p>
+<blockquote data-k="staff.18">“I look forward to meeting you and answering any questions you may have. If you'd like to schedule a tour, just let me know!”</blockquote>
+</div>
+</div>
+<div class="tm rv">
+<div class="timg"><img alt="Dianne Finder" data-img="img.staff.3" src="/img/dianne.jpg" style="object-position:50% 15%"/></div>
+<div class="tbody">
+<span class="role" data-k="staff.19">Co-Director · Lead Engineer</span>
+<h3 data-k="staff.20">Dianne Finder</h3>
+<div class="chips2"><span data-k="staff.21">30+ years Montessori</span><span data-k="staff.22">AMS trained</span></div>
+<p data-k="staff.23">Dianne brings a creative side to Balas Montessori — she develops many of the Montessori-inspired works our children use, and repairs all our materials over breaks so they look fresh year-round. A proud mother and grandmother, her dedication shows in everything she does.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec" id="resources" style="padding-top:0">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="resources.1">For parents</span>
+<h2 data-k="resources.2">Calendars, handbook &amp; forms.</h2>
+</div>
+<div class="res">
+<a class="r rv" data-open-cal="2026-27" href="#calendar"><b data-k="resources.3">2026–27 Balas Calendar</b><span data-k="resources.4">School holidays &amp; key dates</span><i data-k="resources.5">View →</i></a>
+<a class="r rv" data-open-cal="ssusd-26-27" href="#calendar"><b data-k="resources.6">2026–27 SSUSD Calendar</b><span data-k="resources.7">Sierra Sands district dates</span><i data-k="resources.8">View →</i></a>
+<a class="r rv" data-h="h.resources.1" href="https://www.balasmontessorischool.com/balas-montessori-handbook.html" rel="noopener" target="_blank"><b data-k="resources.9">Parent Handbook</b><span data-k="resources.10">Policies &amp; daily routines</span><i data-k="resources.11">Read →</i></a>
+<a class="r rv" data-h="h.resources.2" href="https://www.balasmontessorischool.com/enrollment-forms.html" rel="noopener" target="_blank"><b data-k="resources.12">Enrollment Forms</b><span data-k="resources.13">Health, emergency &amp; consent forms</span><i data-k="resources.14">Download →</i></a>
+<a class="r rv" data-h="h.resources.3" href="https://www.balasmontessorischool.com/curriculum-table.html" rel="noopener" target="_blank"><b data-k="resources.15">Curriculum Table</b><span data-k="resources.16">Full overview by area</span><i data-k="resources.17">View →</i></a>
+<a class="r rv" data-open-cal="2025-26" href="#calendar"><b data-k="resources.18">2025–26 Balas Calendar</b><span data-k="resources.19">Current school year</span><i data-k="resources.20">View →</i></a>
+<a class="r rv" data-open-cal="ssusd-25-26" href="#calendar"><b data-k="resources.21">2025–26 SSUSD Calendar</b><span data-k="resources.22">Sierra Sands district dates</span><i data-k="resources.23">View →</i></a>
+<a class="r rv" href="#enroll"><b data-k="resources.24">Tuition Contract</b><span data-k="resources.25">Fill out &amp; sign online</span><i data-k="resources.26">Start →</i></a>
+</div>
+<div class="upl rv">
+<div><h3 data-k="resources.27">Return completed forms</h3><p data-k="resources.28">Filled out an enrollment, health or emergency form? Upload it here — a photo or PDF is fine. It goes straight to the school.</p></div>
+<form id="uform" novalidate="">
+<input name="parent" placeholder="Parent name" required="" type="text"/>
+<input name="child" placeholder="Child's name" required="" type="text"/>
+<input name="email" placeholder="Email" required="" style="grid-column:1/-1" type="email"/>
+<input autocomplete="off" class="hp" name="website" tabindex="-1" type="text"/>
+<label class="drop">＋ Choose files (PDF, photo or Word · up to 5)<input accept=".pdf,.jpg,.jpeg,.png,.heic,.doc,.docx,image/*" id="ufiles" multiple="" type="file"/></label>
+<div class="flist" id="flist"></div>
+<button class="btn" id="ubtn" type="submit">Send forms</button>
+<div class="msg" id="umsg"></div>
+</form>
+</div>
+</div>
+</section>
+<section class="sec enroll" id="enroll">
+<div class="wrap ewrap">
+<div class="eside rv">
+<span class="kicker" data-k="enroll.1">Join our family</span>
+<h2 data-k="enroll.2">Enroll your child online.</h2>
+<p class="lead" data-k="enroll.3" style="margin-top:14px">Complete the tuition contract right here — no printing, no scanning. It's sent straight to Mrs. Balas.</p>
+<ul>
+<li><span class="n">1</span><div data-k="enroll.4"><b>Fill out the form</b><br/>Child, program and contact info.</div></li>
+<li><span class="n">2</span><div data-k="enroll.5"><b>Review &amp; sign</b><br/>Read the tuition policy and sign electronically.</div></li>
+<li><span class="n">3</span><div data-k="enroll.6"><b>We'll be in touch</b><br/>Mrs. Balas will confirm your spot and next steps.</div></li>
+</ul>
+<p class="note" style="margin-top:24px"><span data-k="enroll.7">Questions? Call </span><a data-k="enroll.8" data-tel="1" href="tel:7603758261"><b>760-375-8261</b></a></p>
+</div>
+<form class="card rv" id="tform" novalidate="">
+<div id="fbody">
+<div class="fhead">
+<h3 data-k="tform.1">Tuition Contract</h3>
+<span data-k="tform.2">Balas Montessori</span>
+</div>
+<fieldset>
+<legend>Child &amp; program</legend>
+<div class="row">
+<div><label for="child">Child's full name</label><input id="child" name="Child's Name" required="" type="text"/></div>
+<div><label for="dob">Child's date of birth</label><input id="dob" name="Child's Date of Birth" required="" type="date"/></div>
+</div>
+<div class="row">
+<div><label for="year">School year</label>
+<select id="year" name="School Year" required=""><option>2026–2027</option><option>2025–2026</option></select></div>
+<div><label for="start">Desired start month</label>
+<select id="start" name="Start Month" required=""><option value="">Select…</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option></select></div>
+</div>
+<div class="row one">
+<div><label>Program</label>
+<div class="chips">
+<label class="chip"><input name="Program" required="" type="radio" value="M/W/F"/><span>M / W / F</span></label>
+<label class="chip"><input name="Program" type="radio" value="T/Th"/><span>T / Th</span></label>
+<label class="chip"><input name="Program" type="radio" value="5-Day (M–F)"/><span>5-Day (M–F)</span></label>
+</div></div>
+</div>
+<div class="row">
+<div><label>Day length</label>
+<div class="chips">
+<label class="chip"><input checked="" name="Day Length" type="radio" value="Full Day"/><span>Full day</span></label>
+<label class="chip"><input name="Day Length" type="radio" value="Half Day"/><span>Half day</span></label>
+</div></div>
+<div><label for="times">Scheduled times</label><input id="times" name="Scheduled Times" placeholder="e.g. 8:00 AM – 3:00 PM" required="" type="text"/></div>
+</div>
+<div class="row">
+<div><label>New or returning?</label>
+<div class="chips">
+<label class="chip"><input checked="" name="Student Status" type="radio" value="New student"/><span>New</span></label>
+<label class="chip"><input name="Student Status" type="radio" value="Returning student"/><span>Returning</span></label>
+</div>
+<p class="note" data-k="tform.3" id="regnote">A $150 non-refundable registration fee applies to new students.</p></div>
+<div><label for="rate">Monthly tuition <span class="opt">(if quoted)</span></label><input id="rate" name="Monthly Tuition" placeholder="$" type="text"/></div>
+</div>
+<label class="check"><input id="ratelock" name="Rate-Lock Fee Paid" type="checkbox" value="Yes — $350 rate-lock fee previously paid"/><span>We already paid the $350 rate-lock fee for this school year.</span></label>
+</fieldset>
+<fieldset>
+<legend>Parent / guardian</legend>
+<div class="row">
+<div><label for="pname">Parent / guardian name</label><input autocomplete="name" id="pname" name="Parent Name" required="" type="text"/></div>
+<div><label for="phone">Phone number</label><input autocomplete="tel" id="phone" name="Phone" required="" type="tel"/></div>
+</div>
+<div class="row one">
+<div><label for="email">Email</label><input autocomplete="email" id="email" name="email" required="" type="email"/><p class="note" data-k="tform.4">You'll get a confirmation copy at this address.</p></div>
+</div>
+<div class="row one">
+<div><label for="notes">Anything we should know? <span class="opt">(optional)</span></label><textarea id="notes" name="Notes" rows="3"></textarea></div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Tuition &amp; admission policy</legend>
+<div class="terms" tabindex="0">
+<p data-k="tform.5">I understand there will be at least <b>30 days' notice</b> of any rate change. Prices shown are full-day prices; half-day prices are available on request. A <b>$150 non-refundable registration fee</b> applies to new students.</p>
+<p data-k="tform.6"><b>Trial period.</b> During your child's first 2 weeks we will evaluate your child in many areas to determine if this program is the right fit. If it is not, your tuition will be refunded on a prorated basis.</p>
+<p data-k="tform.7"><b>Changes &amp; absences.</b> If you enter, leave, or change programs after the 1st day of school, tuition will be prorated accordingly. Discounts can be made for illness-related absences of more than 10 consecutive days — please discuss these with Mrs. Balas. To discontinue the program for any reason, a <b>30-day written notice is required</b>, and you are financially obligated, without exception, for that 30-day period.</p>
+<p data-k="tform.8"><b>Payment.</b> Tuition is due on the <b>1st of each month</b>. A <b>$40 late charge</b> is added for tuition received after 5 PM on the 1st, no exceptions, and a 5% penalty accrues daily until tuition is current. Accounts 30 days past due will be turned over to our collection agency, H.P. Sears of Bakersfield, CA. If payment is not made by the 20th, a leave of absence will begin until tuition is current. If payment or satisfactory arrangements are not made by the 1st of the following month, your child's space may be filled from the waiting list.</p>
+<p data-k="tform.9"><b>Licensing.</b> The Department of Social Services, our licensing agency, has authority to interview children or staff and to inspect and audit child or facility records without prior consent; to observe the physical condition of any child, including conditions indicating neglect, abuse, or inappropriate placement; and to have children examined by a licensed medical professional. Provisions will be made for private interviews with any child if the need arises.</p>
+</div>
+<label class="check"><input id="agree" name="Agreed to Policy" required="" type="checkbox" value="Yes"/><span>I have received, read fully, and agree to accept the above tuition and admission policies.</span></label>
+</fieldset>
+<fieldset style="margin-bottom:20px">
+<legend>Signature</legend>
+<div class="row">
+<div><label for="sig">Type your full name to sign</label><input id="sig" name="Parent Signature" required="" type="text"/></div>
+<div><label for="sdate">Date</label><input id="sdate" name="Signature Date" required="" type="date"/></div>
+</div>
+<div aria-hidden="true" class="sigprev" id="sigprev"></div>
+<p class="note" data-k="tform.10">Typing your name serves as your electronic signature.</p>
+</fieldset>
+<button class="btn btn-primary submit" id="sbtn" type="submit">Submit Tuition Contract</button>
+<p class="err" id="err"></p>
+</div>
+<div class="done" id="done">
+<div class="big">✓</div>
+<h3 data-k="tform.11">Thank you — you're all set!</h3>
+<p data-k="tform.12">Your tuition contract was sent to Balas Montessori. Mrs. Balas will reach out soon to confirm your child's spot.</p>
+</div>
+</form>
+</div>
+</section>
+<section class="sec" id="contact">
+<div class="wrap">
+<div class="rv">
+<span class="kicker" data-k="contact.1">Come visit</span>
+<h2 data-k="contact.2">We'd love to meet you.</h2>
+</div>
+<div class="contact">
+<div class="cbox rv">
+<h3 data-k="contact.3">Balas Montessori</h3>
+<p data-k="contact.4">555 S. China Lake Blvd., Ste 100<br/>Ridgecrest, CA 93555</p>
+<p><span data-k="contact.5">Preschool &amp; Kindergarten</span><br/><a data-k="contact.6" data-tel="1" href="tel:7603758261">760-375-8261</a></p>
+<p><span data-k="contact.7">Toddler Development Center</span><br/><a data-k="contact.8" data-tel="1" href="tel:7606087482">760-608-7482</a></p>
+<p><span data-k="contact.9">Email</span><br/><a data-k="contact.10" data-mail="1" href="mailto:shannonbalas@gmail.com">shannonbalas@gmail.com</a></p>
+<p><span data-k="contact.11">Hours</span><br/><a data-k="contact.12">Mon – Fri · 7:00 AM – 5:30 PM</a></p>
+<p style="margin-top:22px"><a class="btn" data-h="h.contact.1" data-k="contact.13" href="https://www.facebook.com/balas.montessori" rel="noopener" style="background:#fff;color:var(--navy)" target="_blank">Follow on Facebook</a></p>
+</div>
+<div class="map rv"><iframe loading="lazy" src="https://www.google.com/maps?q=555+S+China+Lake+Blvd+Ste+100,+Ridgecrest,+CA+93555&amp;output=embed" title="Map"></iframe></div>
+</div>
+</div>
+</section>
+<footer>
+<div class="wrap">
+<div class="fwrap">
+<img alt="Balas Montessori" data-img="img.footer.1" src="https://www.balasmontessorischool.com/uploads/1/0/6/4/10648738/published/new-logo-balas.jpg"/>
+<div data-k="footer.1">Licensed by the California Department of Social Services<br/>Preschool &amp; K #153808746 · Toddler Center #157750002</div>
+</div>
+<div class="fbar">© <span id="yr"></span> Balas Montessori Preschool &amp; Kindergarten · Ridgecrest, CA</div>
+</div>
+</footer>
+<div aria-labelledby="calTitle" aria-modal="true" class="cal-ov" id="calOv" role="dialog">
+<div class="cal">
+<div class="cal-top">
+<div class="cal-hd">
+<div><h3 id="calTitle">2026–2027 School Calendar</h3><p id="calSub">Balas Montessori · Subject to change</p></div>
+<div class="ysw" id="ysw"><button data-y="2025-26">Balas 25–26</button><button data-y="2026-27">Balas 26–27</button><button data-y="ssusd-25-26">SSUSD 25–26</button><button data-y="ssusd-26-27">SSUSD 26–27</button></div>
+<button aria-label="Close calendar" class="cal-x" id="calX">×</button>
+</div>
+<div class="legend">
+<span><i class="lg-nos"></i>No school</span>
+<span><i class="lg-half"></i>½ day · noon pick-up</span>
+<span><i class="lg-ev"></i>Event / milestone</span>
+<span><i class="lg-closed"></i>Teacher work week · closed</span>
+</div>
+<div class="mtabs" id="mtabs"></div>
+</div>
+<div class="cal-body">
+<div>
+<div class="mhead"><h4 id="mname"></h4><div class="arrows"><button aria-label="Previous month" id="mprev">‹</button><button aria-label="Next month" id="mnext">›</button></div></div>
+<div class="grid7" id="grid"></div>
+</div>
+<div class="elist"><h5>This month</h5><div id="events"></div></div>
+</div>
+<div class="cal-ft"><span>Questions about dates? Call 760-375-8261</span><span id="campNote"></span></div>
+</div>
+</div>
+<script>
+// ---- 2025–26 calendar ----
+const CALS = {
+'ssusd-26-27':[
+  [2026,6,[[3,'nos','Independence Day (observed)','Legal holiday']]],
+  [2026,7,[[3,'closed','Optional teacher work day','No students'],[4,'closed','Teacher professional learning day','No students'],[6,'ev','First day of instruction','']]],
+  [2026,8,[[7,'nos','Labor Day','Legal holiday']]],
+  [2026,9,[[2,'ev','End of 1st quarter',''],[12,'nos','Columbus Day','Legal holiday'],[23,'nos','Teacher professional learning day','Non-school day for students']]],
+  [2026,10,[[6,'ev','End of 1st trimester',''],[11,'nos','Veterans Day','Legal holiday'],['16-20','half','Minimum days','Elementary schools'],['23-25','nos','Non-school days',''],['26-27','nos','Thanksgiving holidays','']]],
+  [2026,11,[['16-17','half','Minimum days','Secondary schools'],[18,'ev','End of 1st semester','Minimum day · all schools'],['21-31','nos','Winter recess','Through January 6']]],
+  [2027,0,[[1,'nos',"New Year's Day (observed)",'Legal holiday'],['4-6','nos','Winter recess',''],[18,'nos','Martin Luther King Jr. Birthday','Legal holiday']]],
+  [2027,1,[[12,'nos',"Lincoln's Birthday (observed)",'Legal holiday'],[15,'nos',"Washington's Birthday",'Legal holiday'],[19,'ev','End of 2nd trimester','']]],
+  [2027,2,[['9-12','half','Minimum days','Elementary schools'],[19,'ev','End of 3rd quarter',''],[26,'nos','In lieu of Admission Day','Legal holiday'],['29-31','nos','Spring break','Through April 2']]],
+  [2027,3,[['1-2','nos','Spring break','']]],
+  [2027,4,[[24,'half','Minimum day','Elementary schools'],['25-26','half','Minimum days','All schools'],[27,'ev','Last day of instruction','Minimum day'],[28,'closed','Optional teacher work day','No students'],[31,'nos','Memorial Day','Legal holiday']]],
+  [2027,5,[[1,'closed','Classified mandatory work day','No students'],[18,'nos','Juneteenth (observed)','Legal holiday']]]
+],
+'ssusd-25-26':[
+  [2025,6,[[4,'nos','Independence Day','Legal holiday']]],
+  [2025,7,[[4,'closed','Optional teacher work day','No students'],[5,'closed','Teacher PD day','No students'],[7,'ev','First day of instruction',''],[29,'nos','Inservice day','Non-school day for students']]],
+  [2025,8,[[1,'nos','Labor Day','Legal holiday']]],
+  [2025,9,[[3,'ev','End of 1st quarter',''],[7,'nos','Inservice day','Non-school day for students'],[13,'nos','Columbus Day','Legal holiday']]],
+  [2025,10,[[7,'ev','End of 1st trimester',''],[11,'nos','Veterans Day','Legal holiday'],['17-21','half','Minimum days','Elementary schools'],['24-26','nos','Non-school days',''],['27-28','nos','Thanksgiving holidays','']]],
+  [2025,11,[['17-18','half','Minimum days','Middle & high schools'],[19,'ev','End of 1st semester','Minimum day · all schools'],['22-31','nos','Winter recess','Through January 6']]],
+  [2026,0,[['1-6','nos','Winter recess','New Year’s Day Jan 1'],[19,'nos','Martin Luther King Jr. Birthday','Legal holiday']]],
+  [2026,1,[[13,'nos',"Lincoln's Birthday (observed)",'Legal holiday'],[16,'nos',"Washington's Birthday",'Legal holiday'],[20,'ev','End of 2nd trimester','']]],
+  [2026,2,[['3-6','half','Minimum days','Elementary schools'],[20,'ev','End of 3rd quarter',''],['30-31','nos','Spring break','Through April 3']]],
+  [2026,3,[['1-3','nos','Spring break','']]],
+  [2026,4,[[22,'half','Minimum day','Elementary schools'],[25,'nos','Memorial Day','Legal holiday'],['26-27','half','Minimum days','All schools'],[28,'ev','Last day of instruction','Minimum day'],[29,'closed','Optional teacher work day','No students']]],
+  [2026,5,[[1,'closed','Classified mandatory work day','No students'],[19,'nos','Juneteenth','Legal holiday']]]
+],
+'2026-27':[
+  [2026,5,[[8,'ev','First day of summer camp'],[19,'nos','Juneteenth (observed)','No school']]],
+  [2026,6,[[3,'nos','Independence Day (observed)','No school'],[24,'half','Last day of summer camp','½ day · noon dismissal'],['27-31','closed','Mandatory teacher work week','School closed']]],
+  [2026,7,[['3-7','closed','Teacher work week','School closed'],[10,'ev','New Student & Parent Orientation','Students 9–11 AM · Parents 7 PM (new students only)'],[11,'ev','First day of instruction','Welcome back!']]],
+  [2026,8,[[7,'nos','Labor Day','No school'],[11,'half','Teacher inservice day','½ day · noon pick-up']]],
+  [2026,9,[[7,'ev','We have school!','SSUSD does not'],[9,'half','Teacher inservice day','½ day · noon pick-up'],[12,'nos','Columbus Day','No school']]],
+  [2026,10,[[6,'half','Teacher inservice day','½ day · noon pick-up'],[8,'ev','Daylight saving ends','Fall back 1 hour'],[11,'nos','Veterans Day','No school'],[20,'ev','Skill summaries / report cards due',''],['23-27','nos','Thanksgiving break','No school']]],
+  [2026,11,[[17,'ev','Last full day of instruction','Before winter break'],[18,'nos','Family Heritage Potlucks','No school · Times TBD'],['21-31','nos','Winter break','No school through Jan 6']]],
+  [2027,0,[['1-6','nos','Winter break','No school'],[15,'half','Teacher inservice day','½ day · noon pick-up'],[18,'nos','Martin Luther King Jr. Day','No school'],[27,'ev','100th day of school!','']]],
+  [2027,1,[[12,'nos',"Lincoln's Birthday (observed)",'No school'],[15,'nos',"Washington's Birthday",'No school'],[26,'half','Teacher inservice day','½ day · noon pick-up']]],
+  [2027,2,[[14,'ev','Daylight saving begins','Spring forward 1 hour'],[25,'ev','Skill summaries / report cards due',''],[26,'half','Teacher inservice day','½ day · noon pick-up'],['29-31','nos','Spring break','No school through Apr 2']]],
+  [2027,3,[['1-2','nos','Spring break','No school'],[5,'nos','Easter Monday','No school'],[23,'half','Teacher inservice day','½ day · noon pick-up']]],
+  [2027,4,[[20,'ev','Last day of full instruction',''],[21,'nos','Graduation (Room 1) & end-of-year potlucks','No school · Graduation in the evening · Rooms 2/3/4 potluck schedule TBA'],['24-28','closed','Mandatory teacher work week','School closed'],[31,'nos','Memorial Day','No school']]]
+],
+'2025-26':[
+  [2025,5,[[2,'ev','First day of summer camp'],[19,'nos','Juneteenth (observed)','No school']]],
+  [2025,6,[[4,'nos','Independence Day','No school'],[25,'half','Last day of summer camp','½ day · noon dismissal'],['28-31','closed','Mandatory teacher work week','School closed Jul 28 – Aug 1']]],
+  [2025,7,[[1,'closed','Mandatory teacher work week','School closed'],[11,'ev','New Student & Parent Orientation','Students 9–11 AM · Parents 7 PM (new students only)'],[12,'ev','First day of instruction','Welcome back!']]],
+  [2025,8,[[1,'nos','Labor Day','No school'],[12,'nos','Teacher inservice day','No school · full day']]],
+  [2025,9,[[6,'ev','We have school!','SSUSD does not'],[10,'half','Teacher inservice day','½ day · noon pick-up'],[13,'nos','Columbus Day','No school']]],
+  [2025,10,[[2,'ev','Daylight saving ends','Fall back 1 hour'],[7,'half','Teacher inservice day','½ day · noon pick-up'],[11,'nos','Veterans Day','No school'],[14,'ev','Skill summaries / report cards due',''],['24-28','nos','Thanksgiving break','No school']]],
+  [2025,11,[[18,'ev','Last full day of instruction','Before winter break'],[19,'nos','Family Heritage Potlucks','No school · Rm 1/3: 8 AM · Rm 2/4: 10 AM'],['22-31','nos','Winter break','No school through Jan 6']]],
+  [2026,0,[['1-6','nos','Winter break','No school'],[16,'half','Teacher inservice day','½ day · noon pick-up'],[19,'nos','Martin Luther King Jr. Day','No school'],[29,'ev','100th day of school!','']]],
+  [2026,1,[[13,'nos',"Lincoln's Birthday (observed)",'No school'],[16,'nos',"Washington's Birthday",'No school'],[27,'half','Teacher inservice day','½ day · noon pick-up']]],
+  [2026,2,[[8,'ev','Daylight saving begins','Spring forward 1 hour'],[27,'half','Teacher inservice day','½ day · noon pick-up · report cards due'],['30-31','nos','Spring break','No school through Apr 3']]],
+  [2026,3,[['1-3','nos','Spring break','No school'],[6,'nos','Easter Monday','No school'],[24,'half','Teacher inservice day','½ day · noon pick-up']]],
+  [2026,4,[[21,'ev','Last day of full instruction',''],[22,'nos','Graduation (Room 1) & end-of-year potlucks','No school · Graduation in the evening · Rooms 2/3/4 potluck schedule TBA'],[25,'nos','Memorial Day','No school'],['26-29','closed','Mandatory teacher work week','School closed']]]
+]};
+const CAMP={'2025-26':'Summer camp begins June 8, 2026','2026-27':'Summer camp begins June 1, 2027','ssusd-25-26':'Late-start Wednesdays — see your school’s start time','ssusd-26-27':'Late-start Wednesdays — see your school’s start time'};
+const TITLE={'2025-26':['2025–2026 School Calendar','Balas Montessori · Subject to change'],'2026-27':['2026–2027 School Calendar','Balas Montessori · Subject to change'],'ssusd-25-26':['2025–2026 Academic Calendar','Sierra Sands Unified School District'],'ssusd-26-27':['2026–2027 Academic Calendar','Sierra Sands Unified School District']};
+let yr='2026-27', CAL=CALS[yr];
+const ysw=document.getElementById('ysw');
+function setYear(y){yr=y;CAL=CALS[y];
+  document.getElementById('calTitle').textContent=TITLE[y][0];
+  document.getElementById('calSub').textContent=TITLE[y][1];
+  document.querySelector('.lg-half').nextSibling.textContent=y.startsWith('ssusd')?'Minimum day':'½ day · noon pick-up';
+  document.querySelector('.lg-closed').nextSibling.textContent=y.startsWith('ssusd')?'Staff work day · no students':'Teacher work week · closed';
+  document.getElementById('campNote').textContent=CAMP[y];
+  ysw.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.y===y));
+  tabs.innerHTML=CAL.map(([yy,m],i)=>`<button class="mtab" data-i="${i}">${MS[m]}<small>${yy}</small></button>`).join('');
+}
+ysw.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&b.dataset.y!==yr){setYear(b.dataset.y);show(startIdx())}});
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MS=MN.map(m=>m.slice(0,3));
+const PILL={nos:['No school','t-nos'],half:['½ day','t-half'],ev:['Event','t-ev'],closed:['Closed','t-closed']};
+let cur=0;
+const ov=document.getElementById('calOv'), tabs=document.getElementById('mtabs');
+tabs.addEventListener('click',e=>{const b=e.target.closest('.mtab');if(b)show(+b.dataset.i)});
+function range(d){if(typeof d==='number')return [d,d];const [a,b]=d.split('-').map(Number);return [a,b]}
+function show(i){
+  cur=Math.max(0,Math.min(CAL.length-1,i));
+  const [y,m,evs]=CAL[cur];
+  document.getElementById('mname').textContent=`${MN[m]} ${y}`;
+  document.getElementById('mprev').disabled=cur===0;
+  document.getElementById('mnext').disabled=cur===CAL.length-1;
+  tabs.querySelectorAll('.mtab').forEach((t,k)=>t.classList.toggle('on',k===cur));
+  tabs.children[cur].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  const map={};evs.forEach((e,k)=>{const [a,b]=range(e[0]);for(let d=a;d<=b;d++)map[d]=map[d]||{t:e[1],k}});
+  const first=new Date(y,m,1).getDay(), days=new Date(y,m+1,0).getDate(), now=new Date();
+  let h=['Su','Mo','Tu','We','Th','Fr','Sa'].map(d=>`<div class="dow">${d}</div>`).join('');
+  for(let k=0;k<first;k++)h+='<div class="day blank"></div>';
+  for(let d=1;d<=days;d++){
+    const wd=(first+d-1)%7, e=map[d];
+    const today=now.getFullYear()===y&&now.getMonth()===m&&now.getDate()===d;
+    h+=`<div class="day${wd%6===0?' we':''}${e?' ev '+PILL[e.t][1]:''}${today?' today':''}"${e?` data-k="${e.k}"`:''}>${d}</div>`;
+  }
+  document.getElementById('grid').innerHTML=h;
+  document.getElementById('events').innerHTML=evs.length?evs.map((e,k)=>{
+    const [a,b]=range(e[0]),[lbl,cls]=PILL[e[1]];
+    return `<div class="ei" data-k="${k}"><div class="dt ${cls}"><b>${a===b?a:a+'–'+b}</b><span>${MS[m]}</span></div><div class="tx"><b>${e[2]}</b>${e[3]?`<span>${e[3]}</span>`:''}<br><span class="pill ${cls}">${lbl}</span></div></div>`}).join(''):'<p class="empty">No special dates this month.</p>';
+}
+// link hover between grid and list
+function hl(k,on){document.querySelectorAll(`#grid [data-k="${k}"], #events [data-k="${k}"]`).forEach(el=>el.classList.toggle('hl',on))}
+['grid','events'].forEach(id=>{const el=document.getElementById(id);
+  el.addEventListener('mouseover',e=>{const t=e.target.closest('[data-k]');if(t)hl(t.dataset.k,true)});
+  el.addEventListener('mouseout',e=>{const t=e.target.closest('[data-k]');if(t)hl(t.dataset.k,false)});
+});
+document.getElementById('grid').addEventListener('click',e=>{const t=e.target.closest('[data-k]');if(t){const r=document.querySelector(`#events [data-k="${t.dataset.k}"]`);r.scrollIntoView({block:'nearest',behavior:'smooth'});hl(t.dataset.k,true);setTimeout(()=>hl(t.dataset.k,false),1200)}});
+document.getElementById('mprev').onclick=()=>show(cur-1);
+document.getElementById('mnext').onclick=()=>show(cur+1);
+function startIdx(){const n=new Date();const i=CAL.findIndex(([y,m])=>y===n.getFullYear()&&m===n.getMonth());return i<0?2:i}
+function openCal(y){setYear(y||'2026-27');show(startIdx());ov.classList.add('open');document.body.classList.add('lock');document.getElementById('calX').focus()}
+function closeCal(){ov.classList.remove('open');document.body.classList.remove('lock')}
+document.querySelectorAll('[data-open-cal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openCal(a.dataset.openCal)}));
+document.getElementById('calX').onclick=closeCal;
+ov.addEventListener('click',e=>{if(e.target===ov)closeCal()});
+document.addEventListener('keydown',e=>{if(!ov.classList.contains('open'))return;if(e.key==='Escape')closeCal();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
+
+let SCHOOL_EMAIL = 'shannonbalas@gmail.com';
+window.CALS=CALS; window.CALS_DEF=JSON.parse(JSON.stringify(CALS)); window.calRefresh=()=>{ if(ov.classList.contains('open')){ CAL=CALS[yr]; show(cur);} };
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.getElementById('sdate').valueAsDate = new Date();
+document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('links').classList.remove('open')));
+
+// reveal
+const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// signature preview
+const sig=document.getElementById('sig'), prev=document.getElementById('sigprev');
+sig.addEventListener('input',()=>prev.textContent=sig.value);
+
+// reg fee note
+document.querySelectorAll('input[name="Student Status"]').forEach(r=>r.addEventListener('change',()=>{
+  document.getElementById('regnote').style.visibility = r.value.startsWith('New') && r.checked ? 'visible':'hidden';
+}));
+
+// submit
+const form=document.getElementById('tform'), err=document.getElementById('err'), btn=document.getElementById('sbtn');
+form.addEventListener('submit', async e=>{
+  e.preventDefault(); err.style.display='none';
+  const bad=[...form.querySelectorAll('[required]')].filter(f=>{
+    if(f.type==='radio') return !form.querySelector(`input[name="${f.name}"]:checked`);
+    if(f.type==='checkbox') return !f.checked;
+    return !f.checkValidity();
+  });
+  form.querySelectorAll('input,select').forEach(f=>f.style.borderColor='');
+  if(bad.length){
+    bad.forEach(f=>{if(f.type!=='radio'&&f.type!=='checkbox')f.style.borderColor='#c0392b'});
+    err.textContent='Please complete all required fields' + (document.getElementById('agree').checked?'':' and agree to the policy') + '.';
+    err.style.display='block'; bad[0].focus(); return;
+  }
+  const data=Object.fromEntries(new FormData(form));
+  if(!data['Rate-Lock Fee Paid']) data['Rate-Lock Fee Paid']='No';
+  const child=data["Child's Name"];
+  const payload={
+    _subject:`New Tuition Contract — ${child} (${data['Program']}, ${data['School Year']})`,
+    _template:'table', _captcha:'false',
+    _replyto:data.email,
+    _autoresponse:`Thank you for enrolling ${child} at Balas Montessori! We received your tuition contract for the ${data['School Year']} school year (${data['Program']}). Mrs. Balas will contact you soon to confirm your spot. Questions? Call 760-375-8261.`,
+    ...data
+  };
+  btn.disabled=true; btn.textContent='Sending…';
+  const saved=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'enrollment',data})}).then(r=>r.ok).catch(()=>false);
+  const mailed=await fetch('https://formsubmit.co/ajax/'+SCHOOL_EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+    .then(r=>r.json().then(j=>r.ok&&j.success!=='false'&&j.success!==false)).catch(()=>false);
+  if(saved||mailed){
+    document.getElementById('fbody').style.display='none';
+    document.getElementById('done').style.display='block';
+    form.scrollIntoView({behavior:'smooth',block:'center'});
+  }else{
+    err.textContent='Something went wrong sending the form. Please try again or call 760-375-8261.';
+    err.style.display='block'; btn.disabled=false; btn.textContent='Submit Tuition Contract';
+  }
+});
+
+// ---- return completed forms ----
+(function(){
+  const uf=document.getElementById('uform'), inp=document.getElementById('ufiles'), fl=document.getElementById('flist'), msg=document.getElementById('umsg'), ub=document.getElementById('ubtn');
+  let files=[];
+  inp.addEventListener('change',()=>{files=[...inp.files].slice(0,5);fl.textContent=files.map(f=>f.name).join(' · ')});
+  const toData=f=>new Promise((res,rej)=>{
+    if(f.type.startsWith('image/')&&f.type!=='image/heic'){ // shrink photos
+      const img=new Image(),u=URL.createObjectURL(f);img.onload=()=>{const m=1800,sc=Math.min(1,m/Math.max(img.width,img.height));const c=document.createElement('canvas');c.width=img.width*sc;c.height=img.height*sc;c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);res({name:f.name.replace(/\.\w+$/,'')+'.jpg',type:'image/jpeg',data:c.toDataURL('image/jpeg',.82)})};img.onerror=()=>{const r=new FileReader();r.onload=()=>res({name:f.name,type:f.type,data:r.result});r.readAsDataURL(f)};img.src=u;
+    }else{const r=new FileReader();r.onload=()=>res({name:f.name,type:f.type||'application/octet-stream',data:r.result});r.onerror=rej;r.readAsDataURL(f)}
+  });
+  uf.addEventListener('submit',async e=>{
+    e.preventDefault(); msg.textContent='';
+    const d=Object.fromEntries(new FormData(uf));
+    if(!d.parent||!d.child||!/\S+@\S+\.\S+/.test(d.email)){msg.textContent='Please fill in your name, child\'s name and email.';return}
+    if(!files.length){msg.textContent='Please choose at least one file.';return}
+    ub.disabled=true; ub.textContent='Uploading…';
+    try{
+      const att=await Promise.all(files.map(toData));
+      const size=att.reduce((a,x)=>a+x.data.length,0);
+      if(size>4.2e6) throw new Error('big');
+      const r=await fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'forms',data:{'Parent Name':d.parent,"Child's Name":d.child,email:d.email,website:d.website},files:att})});
+      if(!r.ok) throw new Error('fail');
+      fetch('https://formsubmit.co/ajax/'+SCHOOL_EMAIL,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:`Forms uploaded — ${d.child}`,_template:'table',_captcha:'false',_replyto:d.email,'Parent Name':d.parent,"Child's Name":d.child,Email:d.email,Files:files.map(f=>f.name).join(', '),'View in':location.origin+'/admin'})}).catch(()=>{});
+      uf.reset(); files=[]; fl.textContent=''; msg.textContent='✓ Thank you! Your forms were sent to the school.';
+    }catch(x){ msg.textContent = x.message==='big' ? 'Those files are too large — please send fewer at a time.' : 'Upload failed. Please try again or call 760-375-8261.'; }
+    ub.disabled=false; ub.textContent='Send forms';
+  });
+})();
+
+// ---- editable content ----
+const DEF_THEME={navy:'#1a344b',cream:'#fbf6e6',paper:'#fffdf7',bark:'#7a5636',sun:'#f2b84b'};
+function clean(h){const t=document.createElement('template');t.innerHTML=h;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===1){if(!['EM','B','STRONG','BR'].includes(c.tagName)){walk(c);c.replaceWith(...c.childNodes)}else{[...c.attributes].forEach(a=>c.removeAttribute(a.name));walk(c)}}else if(c.nodeType!==3)c.remove()})};walk(t.content);return t.innerHTML}
+window.applyContent=function(C){
+  C=C||{};const T=C.text||{},I=C.img||{},H=C.href||{},th=Object.assign({},DEF_THEME,C.theme||{});
+  document.querySelectorAll('[data-k]').forEach(el=>{
+    if(el.dataset.def===undefined) el.dataset.def=el.innerHTML;
+    const v=T[el.dataset.k]; const html=v!=null?clean(v):el.dataset.def;
+    if(el.innerHTML!==html && document.activeElement!==el) el.innerHTML=html;
+    if(el.dataset.tel){const d=el.textContent.replace(/\D/g,'');if(d.length>=7)el.href='tel:'+d}
+    if(el.dataset.mail){const m=el.textContent.trim();if(/\S+@\S+/.test(m))el.href='mailto:'+m}
+  });
+  document.querySelectorAll('[data-img]').forEach(el=>{
+    if(el.dataset.def===undefined) el.dataset.def=el.getAttribute('src');
+    const v=I[el.dataset.img]; el.src=(v&&v.url)||el.dataset.def; el.style.objectFit=(v&&v.fit==='contain')?'contain':''; el.style.background=(v&&v.fit==='contain')?'var(--cream)':'';
+  });
+  document.querySelectorAll('[data-h]').forEach(el=>{
+    if(el.dataset.defh===undefined) el.dataset.defh=el.getAttribute('href');
+    el.setAttribute('href',H[el.dataset.h]||el.dataset.defh);
+  });
+  const r=document.documentElement.style;
+  ['navy','cream','paper','bark','sun'].forEach(k=>r.setProperty('--'+k,th[k]));
+  r.setProperty('--navy-2',th.navy);
+  r.setProperty('--ts',Math.min(1.15,Math.max(.9,+(C.theme&&C.theme.scale)||1)));
+  if(C.cal){Object.keys(C.cal).forEach(k=>{if(CALS[k])CALS[k]=C.cal[k]}); window.calRefresh();}
+  if(C.settings&&C.settings.email) SCHOOL_EMAIL=C.settings.email;
+};
+try{applyContent(window.__C)}catch(e){console.error(e)}
+if(/[?&]edit=1/.test(location.search)) document.documentElement.classList.add('editing');
+</script>
+</body>
+</html>

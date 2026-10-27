@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Website Editor · Balas Montessori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2f6fdb;--accent-2:#2559b5;--danger:#c0392b;--ok:#1f7a4d;
+  --bg:#f4f5f7;--panel:#ffffff;--line:#e3e6ea;--text:#1d2530;--muted:#6b7480;--soft:#f0f2f5;--ws:#e9ebee}
+:root[data-ui="grey"]{--bg:#d9dce0;--panel:#eceef0;--line:#c9cdd2;--text:#1d2530;--muted:#5b636d;--soft:#e2e5e8;--ws:#cfd3d8}
+:root[data-ui="dark"]{--bg:#23272e;--panel:#2c313a;--line:#3b414c;--text:#e8ebef;--muted:#9aa3ae;--soft:#353b45;--ws:#1c1f25}
+:root[data-ui="darker"]{--bg:#121417;--panel:#1a1d22;--line:#2a2e35;--text:#e8ebef;--muted:#8d96a1;--soft:#22262c;--ws:#0c0d10}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+a.btn{color:var(--text)}
+body{font-family:Nunito,system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;height:100vh;overflow:hidden}
+button,input,select{font:inherit;color:inherit}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:9px 16px;font-weight:800;cursor:pointer;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:var(--accent-2)}
+.btn.primary:disabled{opacity:.45;cursor:default}
+.btn.danger{color:var(--danger)}
+.btn.sm{padding:6px 11px;font-size:13px;border-radius:8px}
+input[type=text],input[type=email],input[type=password],input[type=url],select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,111,219,.18)}
+h2{font-size:20px;font-weight:800}
+.muted{color:var(--muted)}
+
+/* login */
+#login{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:50}
+.lbox{width:min(380px,92vw);background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px;text-align:center;box-shadow:0 20px 50px -25px rgba(0,0,0,.25)}
+.lbox img{height:64px;margin:0 auto 10px;mix-blend-mode:multiply}
+.lbox h1{font-size:20px;margin-bottom:4px}
+.lbox p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.lbox input{margin-bottom:12px;text-align:center}
+.lbox .btn{width:100%;padding:12px}
+.lerr{color:var(--danger);font-size:14px;font-weight:700;min-height:20px;margin-top:10px}
+
+/* app shell */
+#app{display:none;height:100vh;flex-direction:column}
+.top{height:60px;flex:none;display:flex;align-items:center;gap:18px;padding:0 18px;background:var(--panel);border-bottom:1px solid var(--line)}
+.brand{font-weight:800;white-space:nowrap}
+.brand small{display:block;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.tabs{display:flex;gap:4px;margin-left:10px}
+.tab{border:0;background:none;padding:9px 14px;border-radius:10px;font-weight:800;color:var(--muted);cursor:pointer;position:relative}
+.tab:hover{color:var(--text);background:var(--soft)}
+.tab.on{color:var(--accent);background:var(--soft)}
+.badge{display:inline-grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:99px;background:var(--danger);color:#fff;font-size:11px;margin-left:6px}
+.right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.status{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.status.dirty{color:#b7791f}
+.status.ok{color:var(--ok)}
+.view{flex:1;display:none;min-height:0}
+.view.on{display:flex}
+
+/* edit page */
+.ws{flex:1;background:var(--ws);display:flex;flex-direction:column;min-width:0}
+.wsbar{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13px;color:var(--muted);font-weight:700}
+.seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{border:0;background:none;padding:5px 12px;border-radius:7px;font-weight:800;font-size:13px;cursor:pointer;color:var(--muted)}
+.seg button.on{background:var(--accent);color:#fff}
+.frame{flex:1;display:flex;justify-content:center;padding:0 16px 16px;min-height:0}
+.frame iframe{width:100%;height:100%;border:0;border-radius:12px;background:#fff;box-shadow:0 10px 30px -15px rgba(0,0,0,.3);transition:width .25s}
+.frame.phone iframe{width:400px}
+.side{width:300px;flex:none;background:var(--panel);border-left:1px solid var(--line);overflow:auto;padding:20px}
+.side h3{font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:22px 0 12px}
+.side h3:first-child{margin-top:0}
+.tip{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5;color:var(--muted)}
+.tip b{color:var(--text)}
+.crow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.crow label{flex:1;font-weight:700;font-size:14px}
+.crow input[type=color]{width:38px;height:32px;border:1px solid var(--line);border-radius:8px;padding:2px;background:var(--panel);cursor:pointer}
+.cwarn{font-size:12px;color:var(--danger);font-weight:700;margin:-4px 0 10px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.sizes{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:700}
+.hist{display:grid;gap:6px}
+.hrow{display:flex;align-items:center;justify-content:space-between;font-size:13px;padding:8px 10px;border:1px solid var(--line);border-radius:10px}
+
+/* calendars */
+.calv{flex:1;display:flex;min-height:0}
+.callist{width:230px;flex:none;background:var(--panel);border-right:1px solid var(--line);padding:16px;overflow:auto}
+.callist button{display:block;width:100%;text-align:left;border:1px solid transparent;background:none;border-radius:10px;padding:11px 12px;font-weight:800;cursor:pointer;margin-bottom:4px}
+.callist button small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+.callist button:hover{background:var(--soft)}
+.callist button.on{background:var(--soft);border-color:var(--accent);color:var(--accent)}
+.calmain{flex:1;overflow:auto;padding:22px 26px;background:var(--ws)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+.mtabs{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 18px}
+.mtabs button{border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:6px 11px;font-weight:800;font-size:13px;cursor:pointer;color:var(--muted)}
+.mtabs button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.mtabs button i{font-style:normal;display:inline-block;min-width:16px;font-size:11px;opacity:.75;margin-left:4px}
+.calgrid{display:grid;grid-template-columns:1fr 280px;gap:18px;align-items:start}
+.evtable{width:100%;border-collapse:collapse}
+.evtable th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);text-align:left;padding:0 6px 8px}
+.evtable td{padding:5px 6px;vertical-align:middle}
+.evtable select{padding:8px 8px}
+.evtable input{padding:8px 10px}
+.evtable .x{border:0;background:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px 6px;border-radius:6px}
+.evtable .x:hover{color:var(--danger);background:var(--soft)}
+.days{display:flex;align-items:center;gap:4px}
+.days select{width:62px}
+.evtable td:nth-child(2){width:150px}
+@media (max-width:1250px){.calgrid{grid-template-columns:1fr}}
+.empty{color:var(--muted);padding:14px 6px}
+.mini{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.mini div{aspect-ratio:1;display:grid;place-items:center;border-radius:7px;font-size:12px;font-weight:700;background:var(--soft)}
+.mini .h{background:none;color:var(--muted);font-size:11px}
+.mini .b{background:none}
+.t-nos{background:#fbe0da!important;color:#a3402c}.t-half{background:#fdeccb!important;color:#8a5a0b}.t-ev{background:#dcebf8!important;color:#1d5a8c}.t-closed{background:#e6e8eb!important;color:#59626b}
+.leg{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:12px;font-weight:700;color:var(--muted)}
+.leg span{display:inline-flex;align-items:center;gap:5px}.leg i{width:10px;height:10px;border-radius:3px}
+
+/* inbox */
+.inbox{flex:1;display:flex;min-height:0}
+.ilist{width:360px;flex:none;background:var(--panel);border-right:1px solid var(--line);overflow:auto}
+.ihead{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel)}
+.item{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid var(--line);background:none;padding:14px 16px 14px 28px;cursor:pointer;position:relative}
+.item:hover{background:var(--soft)}
+.item.on{background:var(--soft);box-shadow:inset 3px 0 0 var(--accent)}
+.item.unread::before{content:"";position:absolute;left:12px;top:20px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.item b{display:block}
+.item.unread b{font-weight:800}
+.item span{font-size:13px;color:var(--muted)}
+.pill{display:inline-block;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;margin-right:6px;background:#dcebf8;color:#1d5a8c}
+.pill.forms{background:#fdeccb;color:#8a5a0b}
+.idetail{flex:1;overflow:auto;padding:26px;background:var(--ws)}
+.ftable{width:100%;border-collapse:collapse;margin-top:14px}
+.ftable td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.ftable td:first-child{width:38%;color:var(--muted);font-weight:700;font-size:14px}
+.files{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:14px}
+.file{border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;background:var(--panel)}
+.file img{width:100%;height:120px;object-fit:cover;display:block;background:var(--soft)}
+.file .ph{height:120px;display:grid;place-items:center;font-size:30px;background:var(--soft)}
+.file span{display:block;padding:8px 10px;font-size:12px;font-weight:700;word-break:break-all}
+.dact{display:flex;gap:8px;flex-wrap:wrap}
+
+/* settings */
+.setv{flex:1;overflow:auto;padding:26px;background:var(--ws)}
+.setv .card{max-width:640px;margin-bottom:18px}
+.setv p{color:var(--muted);font-size:14px;margin:6px 0 14px}
+.themes{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.themes button{border:2px solid var(--line);border-radius:12px;padding:10px;cursor:pointer;background:var(--panel);font-weight:800;font-size:13px}
+.themes button i{display:block;height:36px;border-radius:8px;margin-bottom:8px;border:1px solid rgba(0,0,0,.1)}
+.themes button.on{border-color:var(--accent)}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.swatches button{width:38px;height:38px;border-radius:10px;border:2px solid var(--line);cursor:pointer}
+.swatches button.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:#1d2530;color:#fff;padding:11px 18px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;pointer-events:none;transition:all .25s;z-index:99}
+#toast.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:900px){.side{display:none}.brand small{display:none}.tabs{margin-left:0}.status{display:none}}
+</style>
+</head>
+<body>
+
+<div id="login">
+  <form class="lbox" id="lform">
+    <img src="https://www.balasmontessorischool.com/uploads/1/0/6/4/10648738/published/new-logo-balas.jpg" alt="">
+    <h1>Website Editor</h1>
+    <p>Balas Montessori</p>
+    <input type="password" id="pw" placeholder="Password" autocomplete="current-password" autofocus>
+    <button class="btn primary" type="submit">Log in</button>
+    <div class="lerr" id="lerr"></div>
+  </form>
+</div>
+
+<div id="app">
+  <div class="top">
+    <div class="brand">Balas Montessori<small>Website Editor</small></div>
+    <nav class="tabs">
+      <button class="tab on" data-v="edit">Edit Page</button>
+      <button class="tab" data-v="cal">Calendars</button>
+      <button class="tab" data-v="inbox">Inbox<span class="badge" id="ibadge" hidden></span></button>
+      <button class="tab" data-v="set">Settings</button>
+    </nav>
+    <div class="right">
+      <span class="status" id="status">All changes are live</span>
+      <button class="btn" id="discard" hidden>Undo changes</button>
+      <a class="btn" href="/" target="_blank" style="text-decoration:none">View site ↗</a>
+      <button class="btn primary" id="publish" disabled>Publish</button>
+    </div>
+  </div>
+
+  <!-- EDIT PAGE -->
+  <section class="view on" id="v-edit">
+    <div class="ws">
+      <div class="wsbar">
+        <div class="seg" id="device"><button class="on" data-d="desk">Computer</button><button data-d="phone">Phone</button></div>
+        <span>Click any text to type over it · Hover a photo to change it</span>
+      </div>
+      <div class="frame" id="frame"><iframe id="site" title="Website preview"></iframe></div>
+    </div>
+    <aside class="side">
+      <h3>How it works</h3>
+      <div class="tip"><b>1.</b> Click words on the page and type.<br><b>2.</b> Hover a photo → <b>Replace</b>, <b>Fit</b> or <b>Fill</b>.<br><b>3.</b> Press <b>Publish</b> to put it live.<br>Nothing changes on the real website until you publish.</div>
+      <h3>Colors</h3>
+      <div id="colors"></div>
+      <h3>Text size</h3>
+      <input type="range" id="scale" min="0.9" max="1.15" step="0.05">
+      <div class="sizes"><span>Smaller</span><span id="scaleV">100%</span><span>Larger</span></div>
+      <div style="margin-top:14px"><button class="btn sm" id="resetLook">Reset colors & size</button></div>
+      <h3>Earlier versions</h3>
+      <div class="hist" id="hist"><span class="muted">Loading…</span></div>
+    </aside>
+  </section>
+
+  <!-- CALENDARS -->
+  <section class="view" id="v-cal">
+    <div class="calv">
+      <div class="callist" id="callist"></div>
+      <div class="calmain">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <h2 id="calname"></h2>
+            <button class="btn sm" id="calreset">Reset this calendar</button>
+          </div>
+          <div class="mtabs" id="cmtabs"></div>
+          <div class="calgrid">
+            <div>
+              <table class="evtable"><thead><tr><th>Date</th><th>Type</th><th>What's happening</th><th>Note / times</th><th></th></tr></thead><tbody id="evrows"></tbody></table>
+              <div style="margin-top:12px"><button class="btn sm primary" id="addev">+ Add a date</button></div>
+            </div>
+            <div class="card" style="padding:16px">
+              <b id="minititle"></b>
+              <div class="mini" id="mini" style="margin-top:10px"></div>
+              <div class="leg"><span><i class="t-nos"></i>No school</span><span><i class="t-half"></i>Half day</span><span><i class="t-ev"></i>Event</span><span><i class="t-closed"></i>Closed</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INBOX -->
+  <section class="view" id="v-inbox">
+    <div class="inbox">
+      <div class="ilist">
+        <div class="ihead"><h2>Inbox</h2><button class="btn sm" id="irefresh">Refresh</button></div>
+        <div id="items"><div class="empty" style="padding:16px">Loading…</div></div>
+      </div>
+      <div class="idetail" id="idetail"><div class="muted">Select a message to read it.</div></div>
+    </div>
+  </section>
+
+  <!-- SETTINGS -->
+  <section class="view" id="v-set">
+    <div class="setv">
+      <div class="card">
+        <h2>Where forms are emailed</h2>
+        <p>Tuition contracts and uploaded forms are emailed here and also saved in the Inbox.</p>
+        <input type="email" id="semail">
+        <p style="margin-top:10px">Press <b>Publish</b> after changing this. The first form sent to a new address asks you to confirm it by email once.</p>
+      </div>
+      <div class="card">
+        <h2>Editor appearance</h2>
+        <p>Only changes how this editor looks for you — not the website.</p>
+        <div class="themes" id="uithemes"></div>
+        <p style="margin-top:18px;margin-bottom:10px"><b>Workspace background</b></p>
+        <div class="swatches" id="wsw"></div>
+      </div>
+      <div class="card">
+        <h2>Log out</h2>
+        <p>Your login stays active on this computer for 2 weeks.</p>
+        <button class="btn" id="logout">Log out</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}},del(k){try{localStorage.removeItem(k)}catch{}}};
+const toast=(m,ms=2200)=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),ms)};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clone=o=>JSON.parse(JSON.stringify(o||{}));
+
+let token=LS.get('balas_token',null);
+let saved={}, draft={};
+const blank=()=>({text:{},img:{},href:{},theme:{},cal:{},settings:{}});
+const norm=c=>Object.assign(blank(),clone(c));
+
+async function api(action,body={}){
+  const r=await fetch('/api/admin',{method:'POST',headers:{'Content-Type':'application/json','x-auth':token||''},body:JSON.stringify({action,...body})});
+  const j=await r.json().catch(()=>({error:'Server error'}));
+  if(r.status===401&&action!=='login'){showLogin('Please log in again.');throw new Error('auth')}
+  if(!r.ok) throw new Error(j.error||'Something went wrong');
+  return j;
+}
+
+/* ---------- admin appearance (4 themes + workspace bg) ---------- */
+const UIT=[['white','White','#ffffff'],['grey','Grey','#d9dce0'],['dark','Dark','#2c313a'],['darker','Darker','#121417']];
+const WS=['','#e9ebee','#dfe3e8','#f3efe6','#e6eef7','#2a2e35','#121417'];
+function applyUI(){const t=LS.get('balas_ui','white'),w=LS.get('balas_ws','');document.documentElement.dataset.ui=t;document.documentElement.style.setProperty('--ws',w||'');if(!w)document.documentElement.style.removeProperty('--ws');
+  $('#uithemes').innerHTML=UIT.map(([k,n,c])=>`<button data-t="${k}" class="${k===t?'on':''}"><i style="background:${c}"></i>${n}</button>`).join('');
+  $('#wsw').innerHTML=WS.map(c=>`<button data-w="${c}" class="${c===w?'on':''}" title="${c||'Default'}" style="background:${c||'linear-gradient(135deg,#fff 50%,#ddd 50%)'}"></button>`).join('');}
+$('#uithemes').onclick=e=>{const b=e.target.closest('[data-t]');if(b){LS.set('balas_ui',b.dataset.t);applyUI()}};
+$('#wsw').onclick=e=>{const b=e.target.closest('[data-w]');if(b){LS.set('balas_ws',b.dataset.w);applyUI()}};
+applyUI();
+
+/* ---------- login ---------- */
+function showLogin(msg){$('#app').style.display='none';$('#login').style.display='grid';$('#lerr').textContent=msg||'';$('#pw').focus()}
+$('#lform').onsubmit=async e=>{e.preventDefault();$('#lerr').textContent='';
+  try{const j=await api('login',{password:$('#pw').value});token=j.token;LS.set('balas_token',token);start()}catch(x){$('#lerr').textContent=x.message}};
+$('#logout').onclick=()=>{LS.del('balas_token');token=null;location.reload()};
+
+async function start(){
+  try{const j=await api('load');saved=norm(j.content)}catch(e){if(e.message!=='auth')toast(e.message);return}
+  const local=LS.get('balas_draft',null);
+  draft=local&&local.base===JSON.stringify(saved)?norm(local.c):clone(saved);
+  $('#login').style.display='none';$('#app').style.display='flex';
+  loadFrame(); loadHistory(); loadInbox(true); renderSettings(); setDirty();
+}
+
+/* ---------- dirty / publish ---------- */
+const isDirty=()=>JSON.stringify(norm(draft))!==JSON.stringify(norm(saved));
+function setDirty(){
+  const d=isDirty();$('#publish').disabled=!d;$('#discard').hidden=!d;
+  const s=$('#status');s.className='status'+(d?' dirty':'');s.textContent=d?'Unpublished changes':'All changes are live';
+  LS.set('balas_draft',{base:JSON.stringify(saved),c:draft});
+}
+$('#publish').onclick=async()=>{
+  const b=$('#publish');b.disabled=true;b.textContent='Publishing…';
+  try{const j=await api('save',{content:draft});saved=norm(j.content);draft=clone(saved);pushToFrame();setDirty();
+    const s=$('#status');s.className='status ok';s.textContent='Published ✓ live in a few seconds';toast('Published! Your changes are live.');loadHistory();renderCal()}
+  catch(e){if(e.message!=='auth')toast(e.message,3500);setDirty()}
+  b.textContent='Publish';
+};
+$('#discard').onclick=()=>{if(!confirm('Undo all changes since your last publish?'))return;draft=clone(saved);pushToFrame();renderLook();renderCal();renderSettings();setDirty();toast('Changes undone')};
+addEventListener('beforeunload',e=>{if(isDirty()){e.preventDefault();e.returnValue=''}});
+
+/* ---------- tabs ---------- */
+$$('.tab').forEach(t=>t.onclick=()=>{$$('.tab').forEach(x=>x.classList.toggle('on',x===t));$$('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t.dataset.v));if(t.dataset.v==='cal')renderCal();if(t.dataset.v==='inbox')loadInbox()});
+$('#device').onclick=e=>{const b=e.target.closest('[data-d]');if(!b)return;$$('#device button').forEach(x=>x.classList.toggle('on',x===b));$('#frame').classList.toggle('phone',b.dataset.d==='phone')};
+
+/* ---------- live page editing ---------- */
+let W,D; // iframe window/doc
+function loadFrame(){const f=$('#site');f.onload=wire;f.src='/?edit=1&t='+Date.now()}
+function pushToFrame(){if(W&&W.applyContent){W.applyContent(draft);markEditable()}}
+function cleanHTML(h){return h.replace(/<(?!\/?(em|b|strong|br)\s*\/?>)[^>]*>/gi,'').replace(/(<br>)+$/,'').trim()}
+function markEditable(){D.querySelectorAll('[data-k]').forEach(el=>{el.contentEditable='true';el.spellcheck=true})}
+
+function wire(){
+  const f=$('#site');W=f.contentWindow;D=f.contentDocument;
+  D.documentElement.classList.add('editing');
+  const st=D.createElement('style');st.textContent=`
+    [data-k]{outline:2px dashed transparent;outline-offset:3px;border-radius:4px;transition:outline-color .15s;cursor:text}
+    [data-k]:hover{outline-color:rgba(47,111,219,.55)}
+    [data-k]:focus{outline:2px solid #2f6fdb;background:rgba(47,111,219,.06)}
+    img[data-img]{cursor:pointer}
+    #edTool{position:absolute;z-index:9999;display:none;gap:6px;background:#1d2530;padding:6px;border-radius:12px;box-shadow:0 10px 25px -8px rgba(0,0,0,.5);font:800 13px Nunito,system-ui,sans-serif}
+    #edTool button{border:0;background:#2f3a48;color:#fff;border-radius:8px;padding:7px 11px;cursor:pointer;font:inherit}
+    #edTool button:hover{background:#2f6fdb}
+    #edTool button.on{background:#2f6fdb}
+    #edTool input{width:240px;border:0;border-radius:8px;padding:7px 10px;font:600 13px Nunito,system-ui,sans-serif}
+  `;D.head.appendChild(st);
+  W.applyContent(draft);markEditable();
+
+  // no navigation / no form sending while editing
+  W.addEventListener('click',e=>{const a=e.target.closest('a,button,label.chip,.r');if(a&&!e.target.closest('#edTool')){e.preventDefault();e.stopPropagation()}},true);
+  W.addEventListener('submit',e=>{e.preventDefault();e.stopPropagation()},true);
+  D.addEventListener('dragstart',e=>e.preventDefault());D.addEventListener('drop',e=>e.preventDefault());
+
+  const limit=el=>Math.max(40,Math.round((el.dataset.def||'').replace(/<[^>]+>/g,'').length*2+30));
+  D.addEventListener('keydown',e=>{
+    const el=e.target.closest&&e.target.closest('[data-k]');if(!el)return;
+    if(e.key==='Enter'){e.preventDefault();if(e.shiftKey&&el.tagName==='P')D.execCommand('insertLineBreak');else el.blur()}
+    if((e.metaKey||e.ctrlKey)&&/^[biu]$/i.test(e.key))e.preventDefault();
+    if(e.key==='Escape')el.blur();
+  });
+  D.addEventListener('beforeinput',e=>{
+    const el=e.target.closest&&e.target.closest('[data-k]');if(!el)return;
+    if(/^format/.test(e.inputType)){e.preventDefault();return}
+    if(/^insert/.test(e.inputType)&&e.inputType!=='insertFromPaste'&&el.textContent.length>=limit(el)){e.preventDefault();toast('That spot is full — shorten the text to fit nicely')}
+  });
+  D.addEventListener('paste',e=>{
+    const el=e.target.closest&&e.target.closest('[data-k]');if(!el)return;e.preventDefault();
+    let t=(e.clipboardData.getData('text/plain')||'').replace(/\s+/g,' ');
+    const room=limit(el)-el.textContent.length;if(room<=0){toast('That spot is full');return}
+    D.execCommand('insertText',false,t.slice(0,room));
+  });
+  D.addEventListener('input',e=>{
+    const el=e.target.closest&&e.target.closest('[data-k]');if(!el)return;
+    const v=cleanHTML(el.innerHTML), def=cleanHTML(el.dataset.def);
+    if(v===def)delete draft.text[el.dataset.k];else draft.text[el.dataset.k]=v;
+    if(el.dataset.tel){const d=el.textContent.replace(/\D/g,'');if(d.length>=7)el.href='tel:'+d}
+    // keep the same key in sync if it appears twice (it never does, but safe)
+    setDirty();
+  });
+  D.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('[data-k]');if(el&&!el.textContent.trim()){el.innerHTML=el.dataset.def;delete draft.text[el.dataset.k];setDirty();toast('Text can\'t be empty — put back the original')}});
+
+  // floating toolbar for photos and links
+  const tool=D.createElement('div');tool.id='edTool';D.body.appendChild(tool);
+  let cur=null,hideT;
+  const place=el=>{const r=el.getBoundingClientRect();tool.style.left=(r.left+W.scrollX+8)+'px';tool.style.top=(r.top+W.scrollY+8)+'px';tool.style.display='flex'};
+  const imgTool=img=>{cur=img;const v=draft.img[img.dataset.img]||{};const fit=v.fit==='contain';
+    tool.innerHTML=`<button data-a="rep">Replace photo</button><button data-a="fit" class="${fit?'on':''}">Fit</button><button data-a="fill" class="${fit?'':'on'}">Fill</button>${draft.img[img.dataset.img]?'<button data-a="reset">Original</button>':''}`;place(img)};
+  const linkTool=a=>{cur=a;tool.innerHTML=`<button data-a="link">Change link</button>`;const r=a.getBoundingClientRect();tool.style.left=(r.right+W.scrollX-150)+'px';tool.style.top=(r.top+W.scrollY-44)+'px';tool.style.display='flex'};
+  D.addEventListener('mouseover',e=>{
+    if(e.target.closest('#edTool')){clearTimeout(hideT);return}
+    const img=e.target.closest('img[data-img]');const a=!img&&e.target.closest('a[data-h]');
+    if(img){clearTimeout(hideT);if(cur!==img)imgTool(img)}
+    else if(a){clearTimeout(hideT);if(cur!==a)linkTool(a)}
+    else {clearTimeout(hideT);hideT=setTimeout(()=>{if(!tool.querySelector('input')){tool.style.display='none';cur=null}},350)}
+  });
+  tool.addEventListener('click',async e=>{
+    const b=e.target.closest('button[data-a]');if(!b||!cur)return;e.preventDefault();e.stopPropagation();
+    const a=b.dataset.a;
+    if(a==='rep')pickPhoto(cur);
+    if(a==='fit'||a==='fill'){const k=cur.dataset.img;const v=draft.img[k]||{url:cur.dataset.def};draft.img[k]={url:v.url,fit:a==='fit'?'contain':'cover'};if(draft.img[k].url===cur.dataset.def&&a==='fill')delete draft.img[k];W.applyContent(draft);imgTool(cur);setDirty()}
+    if(a==='reset'){delete draft.img[cur.dataset.img];W.applyContent(draft);imgTool(cur);setDirty()}
+    if(a==='link'){const k=cur.dataset.h;tool.innerHTML=`<input type="url" value="${esc(draft.href[k]||cur.dataset.defh)}"><button data-a="lsave">Save</button><button data-a="lreset">Original</button>`;tool.querySelector('input').focus()}
+    if(a==='lsave'){const v=tool.querySelector('input').value.trim();const k=cur.dataset.h;
+      if(!/^(https?:\/\/|mailto:|tel:)/.test(v)){toast('Links must start with https://');return}
+      if(v===cur.dataset.defh)delete draft.href[k];else draft.href[k]=v;W.applyContent(draft);tool.style.display='none';cur=null;setDirty();toast('Link updated')}
+    if(a==='lreset'){delete draft.href[cur.dataset.h];W.applyContent(draft);tool.style.display='none';cur=null;setDirty()}
+  });
+}
+
+function pickPhoto(img){
+  const inp=document.createElement('input');inp.type='file';inp.accept='image/*';
+  inp.onchange=async()=>{const f=inp.files[0];if(!f)return;
+    toast('Uploading photo…',10000);
+    try{
+      const data=await new Promise((res,rej)=>{const u=URL.createObjectURL(f),im=new Image();im.onload=()=>{const m=2000,s=Math.min(1,m/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.86))};im.onerror=()=>rej(new Error('That file isn\'t a photo we can use'));im.src=u});
+      const j=await api('upload',{data});const k=img.dataset.img;
+      draft.img[k]={url:j.url,fit:(draft.img[k]||{}).fit||'cover'};W.applyContent(draft);setDirty();toast('Photo replaced — press Publish to put it live');
+    }catch(e){if(e.message!=='auth')toast(e.message,3500)}
+  };inp.click();
+}
+
+/* ---------- colors & size (guard rails) ---------- */
+const DEF={navy:'#1a344b',bark:'#7a5636',sun:'#f2b84b',cream:'#fbf6e6',paper:'#fffdf7'};
+const CLR=[['navy','Main color','dark'],['bark','Accent color','dark'],['sun','Highlight color','mid'],['cream','Section background','light'],['paper','Page background','light']];
+const lum=hex=>{const c=[1,3,5].map(i=>parseInt(hex.substr(i,2),16)/255).map(v=>v<=.03928?v/12.92:((v+.055)/1.055)**2.4);return .2126*c[0]+.7152*c[1]+.0722*c[2]};
+const okColor=(kind,h)=>kind==='dark'?lum(h)<.18:kind==='light'?lum(h)>.75:lum(h)>.3;
+function renderLook(){
+  $('#colors').innerHTML=CLR.map(([k,n,kind])=>`<div class="crow"><label>${n}</label><input type="color" data-c="${k}" data-kind="${kind}" value="${draft.theme[k]||DEF[k]}"></div><div class="cwarn" id="w-${k}" hidden></div>`).join('');
+  const s=draft.theme.scale||1;$('#scale').value=s;$('#scaleV').textContent=Math.round(s*100)+'%';
+}
+$('#colors').addEventListener('input',e=>{const i=e.target.closest('[data-c]');if(!i)return;const k=i.dataset.c,w=$('#w-'+k);
+  if(!okColor(i.dataset.kind,i.value)){w.hidden=false;w.textContent=i.dataset.kind==='dark'?'Too light — text would be hard to read. Pick a darker color.':i.dataset.kind==='light'?'Too dark for a background. Pick a lighter color.':'Too dark — pick a brighter color.';return}
+  w.hidden=true;if(i.value.toLowerCase()===DEF[k])delete draft.theme[k];else draft.theme[k]=i.value;pushToFrame();setDirty()});
+$('#scale').oninput=e=>{const v=+e.target.value;$('#scaleV').textContent=Math.round(v*100)+'%';if(v===1)delete draft.theme.scale;else draft.theme.scale=v;pushToFrame();setDirty()};
+$('#resetLook').onclick=()=>{draft.theme={};renderLook();pushToFrame();setDirty()};
+
+/* ---------- version history ---------- */
+async function loadHistory(){
+  try{const j=await api('history');
+    $('#hist').innerHTML=j.items.length?j.items.slice(0,12).map((h,i)=>`<div class="hrow"><span>${new Date(h.at).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}${i===0?' <b class="muted">· live</b>':''}</span>${i?`<button class="btn sm" data-r="${esc(h.id)}">Restore</button>`:''}</div>`).join(''):'<span class="muted" style="font-size:13px">No published versions yet.</span>';
+  }catch(e){}
+}
+$('#hist').onclick=async e=>{const b=e.target.closest('[data-r]');if(!b)return;if(!confirm('Put this earlier version back live? (You can always restore again.)'))return;
+  try{const j=await api('restore',{id:b.dataset.r});saved=norm(j.content);draft=clone(saved);pushToFrame();renderLook();renderCal();setDirty();loadHistory();toast('Earlier version restored')}catch(x){toast(x.message)}};
+
+/* ---------- calendars ---------- */
+const CALINFO={'2026-27':['Balas 2026–27','School calendar'],'2025-26':['Balas 2025–26','School calendar'],'ssusd-26-27':['SSUSD 2026–27','Sierra Sands district'],'ssusd-25-26':['SSUSD 2025–26','Sierra Sands district']};
+const MN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+let calId='2026-27',calM=0;
+const TYPES=[['nos','No school'],['half','Half day'],['ev','Event'],['closed','Closed']];
+const getCal=id=>clone(draft.cal[id]||(W&&W.CALS_DEF&&W.CALS_DEF[id])||[]);
+function setCal(id,v){const def=JSON.stringify(W.CALS_DEF[id]);if(JSON.stringify(v)===def)delete draft.cal[id];else draft.cal[id]=v;pushToFrame();setDirty()}
+const rng=d=>typeof d==='number'?[d,d]:String(d).split('-').map(Number);
+function renderCal(){
+  if(!W||!W.CALS_DEF){setTimeout(renderCal,300);return}
+  $('#callist').innerHTML=Object.keys(CALINFO).map(k=>`<button data-c="${k}" class="${k===calId?'on':''}">${CALINFO[k][0]}<small>${CALINFO[k][1]}${draft.cal[k]?' · edited':''}</small></button>`).join('');
+  const cal=getCal(calId);calM=Math.min(calM,cal.length-1);
+  $('#calname').textContent=CALINFO[calId][0]+' Calendar';
+  $('#cmtabs').innerHTML=cal.map(([y,m,ev],i)=>`<button data-m="${i}" class="${i===calM?'on':''}">${MN[m].slice(0,3)} ${String(y).slice(2)}<i>${ev.length||''}</i></button>`).join('');
+  const [y,m,evs]=cal[calM];const dim=new Date(y,m+1,0).getDate();
+  const opts=(sel,from)=>Array.from({length:dim},(_,i)=>i+1).filter(d=>d>=(from||1)).map(d=>`<option ${d===sel?'selected':''}>${d}</option>`).join('');
+  $('#evrows').innerHTML=evs.length?evs.map((e,i)=>{const [a,b]=rng(e[0]);return `<tr data-i="${i}">
+    <td><div class="days"><select data-f="a">${opts(a)}</select><span class="muted">to</span><select data-f="b"><option value="">—</option>${opts(b===a?0:b,a+1)}</select></div></td>
+    <td><select data-f="t">${TYPES.map(([k,n])=>`<option value="${k}" ${k===e[1]?'selected':''}>${n}</option>`).join('')}</select></td>
+    <td><input type="text" data-f="title" maxlength="80" value="${esc(e[2])}" placeholder="e.g. Labor Day"></td>
+    <td><input type="text" data-f="note" maxlength="140" value="${esc(e[3]||'')}" placeholder="optional"></td>
+    <td><button class="x" data-del="${i}" title="Remove">×</button></td></tr>`}).join(''):`<tr><td colspan="5" class="empty">No special dates this month.</td></tr>`;
+  // mini preview
+  $('#minititle').textContent=MN[m]+' '+y;
+  const first=new Date(y,m,1).getDay(),map={};evs.forEach(e=>{const [a,b]=rng(e[0]);for(let d=a;d<=b;d++)map[d]=e[1]});
+  $('#mini').innerHTML=['S','M','T','W','T','F','S'].map(d=>`<div class="h">${d}</div>`).join('')+'<div class="b"></div>'.repeat(first)+Array.from({length:dim},(_,i)=>`<div class="${map[i+1]?'t-'+map[i+1]:''}">${i+1}</div>`).join('');
+}
+$('#callist').onclick=e=>{const b=e.target.closest('[data-c]');if(b){calId=b.dataset.c;calM=0;renderCal()}};
+$('#cmtabs').onclick=e=>{const b=e.target.closest('[data-m]');if(b){calM=+b.dataset.m;renderCal()}};
+$('#evrows').addEventListener('change',e=>{const tr=e.target.closest('tr[data-i]');if(!tr)return;const cal=getCal(calId),ev=cal[calM][2][+tr.dataset.i];
+  const a=+tr.querySelector('[data-f=a]').value,bv=tr.querySelector('[data-f=b]').value,b=bv?Math.max(a,+bv):a;
+  ev[0]=b>a?a+'-'+b:a;ev[1]=tr.querySelector('[data-f=t]').value;
+  if(e.target.dataset.f==='a'||e.target.dataset.f==='b')cal[calM][2].sort((x,y)=>rng(x[0])[0]-rng(y[0])[0]);
+  setCal(calId,cal);renderCal()});
+$('#evrows').addEventListener('input',e=>{const f=e.target.dataset.f;if(f!=='title'&&f!=='note')return;const tr=e.target.closest('tr');const cal=getCal(calId);const ev=cal[calM][2][+tr.dataset.i];
+  if(f==='title')ev[2]=e.target.value;else ev[3]=e.target.value;setCal(calId,cal)});
+$('#evrows').addEventListener('focusout',e=>{if(e.target.dataset.f==='title'&&!e.target.value.trim()){e.target.value='Untitled';e.target.dispatchEvent(new Event('input',{bubbles:true}))}});
+$('#evrows').onclick=e=>{const b=e.target.closest('[data-del]');if(!b)return;const cal=getCal(calId);const ev=cal[calM][2][+b.dataset.del];if(!confirm(`Remove "${ev[2]}"?`))return;cal[calM][2].splice(+b.dataset.del,1);setCal(calId,cal);renderCal()};
+$('#addev').onclick=()=>{const cal=getCal(calId);cal[calM][2].push([1,'nos','New date','']);cal[calM][2].sort((x,y)=>rng(x[0])[0]-rng(y[0])[0]);setCal(calId,cal);renderCal();setTimeout(()=>{const ins=[...$$('#evrows [data-f=title]')].find(i=>i.value==='New date');if(ins){ins.focus();ins.select()}},50)};
+$('#calreset').onclick=()=>{if(!confirm('Put this whole calendar back to the original dates?'))return;delete draft.cal[calId];pushToFrame();setDirty();renderCal()};
+
+/* ---------- inbox ---------- */
+let inbox=[],sel=null;
+const subName=s=>s.data["Child's Name"]||s.data['Parent Name']||'Submission';
+async function loadInbox(quiet){
+  try{const j=await api('inbox');inbox=j.items;}catch(e){if(!quiet&&e.message!=='auth')toast(e.message);return}
+  const un=inbox.filter(i=>!i.read).length;const bd=$('#ibadge');bd.hidden=!un;bd.textContent=un;
+  $('#items').innerHTML=inbox.length?inbox.map(s=>`<button class="item ${s.read?'':'unread'} ${s.id===sel?'on':''}" data-id="${esc(s.id)}">
+    <b>${esc(subName(s))}</b><span><span class="pill ${s.type==='forms'?'forms':''}">${s.type==='forms'?'Forms':'Tuition contract'}</span>${new Date(s.at).toLocaleString([], {month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</span></button>`).join(''):'<div class="empty" style="padding:16px">No forms yet. New tuition contracts and uploaded forms will show up here.</div>';
+}
+$('#irefresh').onclick=()=>loadInbox();
+$('#items').onclick=async e=>{const b=e.target.closest('[data-id]');if(!b)return;sel=b.dataset.id;const s=inbox.find(x=>x.id===sel);showSub(s);
+  if(!s.read){s.read=true;b.classList.remove('unread');const un=inbox.filter(i=>!i.read).length;$('#ibadge').hidden=!un;$('#ibadge').textContent=un;api('markRead',{id:s.id}).catch(()=>{})}
+  $$('.item').forEach(x=>x.classList.toggle('on',x.dataset.id===sel))};
+function showSub(s){
+  const rows=Object.entries(s.data).filter(([k,v])=>v&&k!=='website').map(([k,v])=>`<tr><td>${esc(k==='email'?'Email':k)}</td><td>${esc(v)}</td></tr>`).join('');
+  const files=(s.files||[]).map(f=>`<a class="file" href="${esc(f.url)}" target="_blank" rel="noopener">${/^image\//.test(f.type)&&!/heic/.test(f.type)?`<img src="${esc(f.url)}" alt="">`:`<div class="ph">📄</div>`}<span>${esc(f.name)}</span></a>`).join('');
+  const em=s.data.email||'';
+  $('#idetail').innerHTML=`<div class="card" id="printme">
+    <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start">
+      <div><span class="pill ${s.type==='forms'?'forms':''}">${s.type==='forms'?'Uploaded forms':'Tuition contract'}</span><h2 style="margin-top:8px">${esc(subName(s))}</h2><div class="muted" style="font-size:13px;margin-top:2px">${new Date(s.at).toLocaleString()}</div></div>
+      <div class="dact">${em?`<a class="btn sm" style="text-decoration:none" href="mailto:${esc(em)}">Reply by email</a>`:''}<button class="btn sm" id="pr">Print</button><button class="btn sm danger" id="dl">Delete</button></div>
+    </div>
+    <table class="ftable">${rows}</table>
+    ${files?`<h3 style="margin-top:20px;font-size:14px">Files</h3><div class="files">${files}</div>`:''}
+  </div>`;
+  $('#pr').onclick=()=>{const w=open('','_blank');w.document.write(`<title>${esc(subName(s))}</title><body style="font-family:sans-serif;padding:30px">${$('#printme').innerHTML}</body>`);w.document.querySelectorAll('.dact').forEach(x=>x.remove());w.document.close();w.print()};
+  $('#dl').onclick=async()=>{if(!confirm('Delete this submission and its files? This can\'t be undone.'))return;try{await api('delete',{id:s.id});sel=null;$('#idetail').innerHTML='<div class="muted">Deleted.</div>';loadInbox()}catch(e){toast(e.message)}};
+}
+
+/* ---------- settings ---------- */
+function renderSettings(){$('#semail').value=draft.settings.email||'shannonbalas@gmail.com';renderLook()}
+$('#semail').oninput=e=>{const v=e.target.value.trim();if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){if(v==='shannonbalas@gmail.com')delete draft.settings.email;else draft.settings.email=v;setDirty()}};
+
+if(token)start();else showLogin();
+</script>
+</body>
+</html>

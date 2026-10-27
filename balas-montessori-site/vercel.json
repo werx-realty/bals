@@ -1,0 +1,4 @@
+{
+  "cleanUrls": true,
+  "headers": [{ "source": "/admin", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }, { "key": "Cache-Control", "value": "no-store" }] }]
+}
